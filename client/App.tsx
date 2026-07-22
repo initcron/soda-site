@@ -1,30 +1,26 @@
-import "./global.css";
-
-import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SiteLayout from "./components/SiteLayout";
+import CourseDetail from "./pages/CourseDetail";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
+import Placeholder from "./pages/Placeholder";
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <BrowserRouter>
+    <Routes>
+      <Route element={<SiteLayout />}>
+        <Route path="/" element={<Index />} />
+        <Route path="/courses/mlops-bootcamp" element={<CourseDetail />} />
+        <Route path="/courses" element={<Placeholder />} />
+        <Route path="/learning-paths" element={<Placeholder />} />
+        <Route path="/roadmaps" element={<Placeholder />} />
+        <Route path="/about" element={<Placeholder />} />
+        <Route path="/legacy-access" element={<Placeholder />} />
+        <Route path="/legal" element={<Placeholder />} />
+        <Route path="*" element={<Placeholder />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);
