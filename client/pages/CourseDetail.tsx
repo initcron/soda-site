@@ -45,14 +45,6 @@ export default function CourseDetail() {
             </p>
             <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.94] tracking-[-.07em] sm:text-6xl">
               {course.title}
-              {!isComingSoon && (
-                <>
-                  :<br />
-                  <span className="text-[#6d8700]">Build systems,</span>
-                  <br />
-                  not demos.
-                </>
-              )}
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-7 text-[#52615a]">
               {course.description}
