@@ -2,23 +2,29 @@ import "./global.css";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SiteLayout from "./components/SiteLayout";
+import ComingSoon from "./pages/ComingSoon";
+import CourseCatalog from "./pages/CourseCatalog";
 import CourseDetail from "./pages/CourseDetail";
 import Index from "./pages/Index";
-import Placeholder from "./pages/Placeholder";
+import NotFound from "./pages/NotFound";
+import PathDetail from "./pages/PathDetail";
+import PathListing from "./pages/PathListing";
+import Roadmap from "./pages/Roadmap";
 
 const App = () => (
   <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Routes>
       <Route element={<SiteLayout />}>
         <Route path="/" element={<Index />} />
-        <Route path="/courses/mlops-bootcamp" element={<CourseDetail />} />
-        <Route path="/courses" element={<Placeholder />} />
-        <Route path="/learning-paths" element={<Placeholder />} />
-        <Route path="/roadmaps" element={<Placeholder />} />
-        <Route path="/about" element={<Placeholder />} />
-        <Route path="/legacy-access" element={<Placeholder />} />
-        <Route path="/legal" element={<Placeholder />} />
-        <Route path="*" element={<Placeholder />} />
+        <Route path="/courses" element={<CourseCatalog />} />
+        <Route path="/courses/:slug" element={<CourseDetail />} />
+        <Route path="/learning-paths" element={<PathListing />} />
+        <Route path="/learning-paths/:slug" element={<PathDetail />} />
+        <Route path="/roadmaps" element={<Roadmap />} />
+        <Route path="/about" element={<ComingSoon />} />
+        <Route path="/legacy-access" element={<ComingSoon />} />
+        <Route path="/legal" element={<ComingSoon />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   </BrowserRouter>
