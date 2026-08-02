@@ -2,6 +2,7 @@ import "./global.css";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SiteLayout from "./components/SiteLayout";
+import About from "./pages/About";
 import ComingSoon from "./pages/ComingSoon";
 import CourseCatalog from "./pages/CourseCatalog";
 import CourseDetail from "./pages/CourseDetail";
@@ -21,7 +22,7 @@ const App = () => (
         <Route path="/learning-paths" element={<PathListing />} />
         <Route path="/learning-paths/:slug" element={<PathDetail />} />
         <Route path="/roadmaps" element={<Roadmap />} />
-        <Route path="/about" element={<ComingSoon />} />
+        <Route path="/about" element={<About />} />
         <Route path="/legacy-access" element={<ComingSoon />} />
         <Route path="/legal" element={<ComingSoon />} />
         <Route path="*" element={<NotFound />} />
