@@ -149,8 +149,8 @@ export default function Index() {
             See all paths <ArrowRight className="inline" size={15} />
           </Link>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {paths.map((path) => (
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {paths.slice(0, 6).map((path) => (
             <Link
               key={path.slug}
               to={`/learning-paths/${path.slug}`}
@@ -244,7 +244,7 @@ export default function Index() {
             <div>
               <p className="eyebrow text-[#d9ff5a]">Free visual guide</p>
               <h2 className="mt-4 font-display text-4xl font-extrabold leading-[.98] tracking-[-.06em] sm:text-5xl">
-                What does an Agentic AI Engineer actually need to know?
+                What does an AI Native DevOps Engineer actually need to know?
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-6 text-[#b9c4b9]">
                 Follow the core skills, identify the deep-dives, and see which

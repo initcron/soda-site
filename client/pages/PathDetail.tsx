@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { getPathBySlug, getCoursesForPath } from "@/data/paths";
 
@@ -6,10 +6,18 @@ export default function PathDetail() {
   const { slug } = useParams<{ slug: string }>();
   const path = slug ? getPathBySlug(slug) : undefined;
   const pathCourses = slug ? getCoursesForPath(slug) : [];
+  const prerequisitePath = path?.prerequisitePathSlug
+    ? getPathBySlug(path.prerequisitePathSlug)
+    : undefined;
 
   if (!path) {
     return <Navigate to="/learning-paths" replace />;
   }
+
+  const publishedCount = pathCourses.filter(
+    (c) => c.status === "published"
+  ).length;
+  const hasComingSoon = pathCourses.some((c) => c.status === "coming-soon");
 
   return (
     <main className="bg-[#f7f7f2]">
@@ -38,6 +46,17 @@ export default function PathDetail() {
           <p className="mt-7 max-w-2xl text-lg leading-7 text-[#52615a]">
             {path.description}
           </p>
+          {prerequisitePath && (
+            <div className="mt-6">
+              <Link
+                to={`/learning-paths/${prerequisitePath.slug}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[#13201e]/20 bg-white/60 px-4 py-2 text-xs font-bold transition hover:border-[#13201e]"
+              >
+                Prerequisite: {prerequisitePath.title}{" "}
+                <ArrowRight size={13} />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -46,7 +65,7 @@ export default function PathDetail() {
         <h2 className="section-title mt-4">Your ordered path.</h2>
         <div className="mt-12 space-y-0">
           {pathCourses.map((course, index) => {
-            const isLast = index === pathCourses.length - 1;
+            const isLast = index === pathCourses.length - 1 && !hasComingSoon;
             const isComingSoon = course.status === "coming-soon";
             return (
               <div key={course.slug} className="flex gap-6">
@@ -99,6 +118,24 @@ export default function PathDetail() {
               </div>
             );
           })}
+          {publishedCount <= 3 && (
+            <div className="flex gap-6">
+              <div className="flex flex-col items-center">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[#6d8700]/30 text-[#6d8700]/40 font-mono text-lg">
+                  +
+                </div>
+              </div>
+              <div className="mb-6 flex-1 rounded-2xl border border-dashed border-[#6d8700]/30 bg-[#d9ff5a]/10 p-6">
+                <p className="font-display text-sm font-bold text-[#6d8700]">
+                  More courses coming soon
+                </p>
+                <p className="mt-1 text-xs text-[#6d8700]/70">
+                  This path is actively growing. New courses will be added as
+                  they become available.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>
