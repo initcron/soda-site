@@ -21,7 +21,7 @@ export default function CourseCatalog() {
         <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em] sm:text-6xl">
           Courses built for the work ahead.
         </h1>
-        <p className="mt-6 text-base leading-7 text-[#586760]">
+        <p className="mt-6 text-base leading-7 text-[#5e5469]">
           No generic promises. Just focused courses for engineers who need to
           ship, operate, and improve production systems.
         </p>
@@ -32,8 +32,8 @@ export default function CourseCatalog() {
           onClick={() => setActiveFilter("all")}
           className={`rounded-full border px-4 py-2 text-xs font-bold transition ${
             activeFilter === "all"
-              ? "border-[#13201e] bg-[#13201e] text-[#f7f7f2]"
-              : "border-[#13201e]/15 hover:border-[#13201e]"
+              ? "border-[#1e1a2e] bg-[#1e1a2e] text-[#f6f3f8]"
+              : "border-[#1e1a2e]/15 hover:border-[#1e1a2e]"
           }`}
         >
           All courses
@@ -44,8 +44,8 @@ export default function CourseCatalog() {
             onClick={() => setActiveFilter(p.slug)}
             className={`rounded-full border px-4 py-2 text-xs font-bold transition ${
               activeFilter === p.slug
-                ? "border-[#13201e] bg-[#13201e] text-[#f7f7f2]"
-                : "border-[#13201e]/15 hover:border-[#13201e]"
+                ? "border-[#1e1a2e] bg-[#1e1a2e] text-[#f6f3f8]"
+                : "border-[#1e1a2e]/15 hover:border-[#1e1a2e]"
             }`}
           >
             {p.title}
@@ -61,16 +61,16 @@ export default function CourseCatalog() {
             className={`course-card group ${course.status === "coming-soon" ? "opacity-60" : ""}`}
           >
             <div className="flex items-start justify-between">
-              <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#13201e] bg-[#d9ff5a] font-mono text-sm font-bold">
+              <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#1e1a2e] bg-[#a288b3] font-mono text-sm font-bold">
                 {course.shortCode}
               </span>
               <div className="flex gap-2">
                 {course.status === "coming-soon" && (
-                  <span className="rounded-full border border-dashed border-[#6d8700]/50 bg-[#d9ff5a]/20 px-2 py-1 text-[10px] font-bold uppercase">
+                  <span className="rounded-full border border-dashed border-[#7b5e8b]/50 bg-[#a288b3]/20 px-2 py-1 text-[10px] font-bold uppercase">
                     Coming soon
                   </span>
                 )}
-                <span className="rounded-full border border-[#13201e]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
+                <span className="rounded-full border border-[#1e1a2e]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
                   {course.level}
                 </span>
               </div>
@@ -78,8 +78,8 @@ export default function CourseCatalog() {
             <h2 className="mt-10 font-display text-xl font-extrabold tracking-[-.04em]">
               {course.title}
             </h2>
-            <p className="mt-2 text-sm text-[#617069]">{course.tagline}</p>
-            <div className="mt-6 flex justify-between border-t border-[#13201e]/10 pt-4 text-xs font-bold">
+            <p className="mt-2 text-sm text-[#665c70]">{course.tagline}</p>
+            <div className="mt-6 flex justify-between border-t border-[#1e1a2e]/10 pt-4 text-xs font-bold">
               <span>{course.status === "coming-soon" ? "Notify me" : "View course"}</span>
               <ArrowUpRight
                 className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"

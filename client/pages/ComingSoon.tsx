@@ -12,7 +12,7 @@ export default function ComingSoon() {
         <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em]">
           This page is coming soon.
         </h1>
-        <p className="mt-6 max-w-lg text-base leading-7 text-[#586760]">
+        <p className="mt-6 max-w-lg text-base leading-7 text-[#5e5469]">
           We're still building this part of the SODA experience. In the
           meantime, explore the live course catalogue or head back home.
         </p>
