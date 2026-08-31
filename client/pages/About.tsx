@@ -25,7 +25,7 @@ export default function About() {
 
       <section className="border-b border-[#1e1a2e]/10 bg-[#ebe3f0]">
         <div className="page-shell py-16 lg:py-24">
-          <p className="eyebrow">About SODA</p>
+          <p className="eyebrow">About</p>
           <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[.94] tracking-[-.07em] sm:text-6xl">
             Built by a practitioner,
             <br />
@@ -48,7 +48,7 @@ export default function About() {
                   Gourav J. Shah
                 </h2>
                 <p className="mt-1 text-sm font-bold text-[#7b5e8b]">
-                  Founder, School of DevOps & AI
+                  Founder, School of DevOps
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <a

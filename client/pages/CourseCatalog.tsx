@@ -16,7 +16,7 @@ export default function CourseCatalog() {
     <main className="page-shell py-16 sm:py-24">
       <div className="max-w-2xl">
         <p className="eyebrow">
-          <Sparkles size={13} /> SODA course catalogue
+          <Sparkles size={13} /> Course catalogue
         </p>
         <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em] sm:text-6xl">
           Courses built for the work ahead.

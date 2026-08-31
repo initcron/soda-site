@@ -75,7 +75,7 @@ export default function Index() {
             >
               <div className="relative z-10 flex h-full flex-col justify-between rounded-[28%] border-2 border-[#1e1a2e] bg-[#f6f3f8] p-7 sm:p-8">
                 <span className="w-fit rounded-full border border-[#1e1a2e] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
-                  SODA system map
+                  System map
                 </span>
                 <div>
                   <p className="font-display text-4xl font-extrabold leading-none tracking-[-.06em]">
