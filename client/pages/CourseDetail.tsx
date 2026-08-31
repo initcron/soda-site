@@ -21,15 +21,15 @@ export default function CourseDetail() {
   const isComingSoon = course.status === "coming-soon";
 
   return (
-    <main className="bg-[#f7f7f2]">
+    <main className="bg-[#f6f3f8]">
       {/* Breadcrumb */}
-      <section className="border-b border-[#13201e]/10">
-        <div className="page-shell py-5 text-xs text-[#68756f]">
-          <Link className="hover:text-[#13201e]" to="/">
+      <section className="border-b border-[#1e1a2e]/10">
+        <div className="page-shell py-5 text-xs text-[#6e647a]">
+          <Link className="hover:text-[#1e1a2e]" to="/">
             Home
           </Link>{" "}
           <ChevronRight className="inline" size={13} />{" "}
-          <Link className="hover:text-[#13201e]" to="/courses">
+          <Link className="hover:text-[#1e1a2e]" to="/courses">
             Courses
           </Link>{" "}
           <ChevronRight className="inline" size={13} /> {course.title}
@@ -37,7 +37,7 @@ export default function CourseDetail() {
       </section>
 
       {/* Hero */}
-      <section className="border-b border-[#13201e]/10 bg-[#e5ebdc]">
+      <section className="border-b border-[#1e1a2e]/10 bg-[#ebe3f0]">
         <div className="page-shell grid gap-10 py-16 lg:grid-cols-[1.35fr_.65fr] lg:py-24">
           <div>
             <p className="eyebrow">
@@ -46,51 +46,51 @@ export default function CourseDetail() {
             <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.94] tracking-[-.07em] sm:text-6xl">
               {course.title}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-7 text-[#52615a]">
+            <p className="mt-7 max-w-2xl text-lg leading-7 text-[#5a5066]">
               {course.description}
             </p>
             {!isComingSoon && course.rating && (
               <div className="mt-8 flex flex-wrap gap-3 text-sm">
-                <span className="rounded-full border border-[#13201e]/15 bg-[#f7f7f2] px-3 py-1.5">
+                <span className="rounded-full border border-[#1e1a2e]/15 bg-[#f6f3f8] px-3 py-1.5">
                   {course.rating} / 5 rating
                 </span>
                 {course.students && (
-                  <span className="rounded-full border border-[#13201e]/15 bg-[#f7f7f2] px-3 py-1.5">
+                  <span className="rounded-full border border-[#1e1a2e]/15 bg-[#f6f3f8] px-3 py-1.5">
                     {course.students} students
                   </span>
                 )}
               </div>
             )}
           </div>
-          <aside className="self-end rounded-2xl border border-[#13201e] bg-[#13201e] p-6 text-[#f7f7f2] shadow-[8px_8px_0_#d9ff5a]">
+          <aside className="self-end rounded-2xl border border-[#1e1a2e] bg-[#1e1a2e] p-6 text-[#f6f3f8] shadow-[8px_8px_0_#a288b3]">
             {isComingSoon ? (
               <>
-                <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b7c4ae]">
+                <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b5aebb]">
                   Coming soon
                 </p>
                 <p className="mt-4 font-display text-2xl font-extrabold tracking-[-.04em]">
                   Under development.
                 </p>
-                <p className="mt-2 text-sm leading-6 text-[#bcc7ba]">
+                <p className="mt-2 text-sm leading-6 text-[#bab2c2]">
                   This course is being built. Check back soon or explore other
                   courses in the catalogue.
                 </p>
                 <Link
                   to="/courses"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#d9ff5a] px-5 py-3 text-sm font-bold text-[#13201e]"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#a288b3] px-5 py-3 text-sm font-bold text-[#1e1a2e]"
                 >
                   Browse courses <ArrowRight size={15} />
                 </Link>
               </>
             ) : (
               <>
-                <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b7c4ae]">
+                <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b5aebb]">
                   Ready when you are
                 </p>
                 <p className="mt-4 font-display text-2xl font-extrabold tracking-[-.04em]">
                   Learn on Udemy.
                 </p>
-                <p className="mt-2 text-sm leading-6 text-[#bcc7ba]">
+                <p className="mt-2 text-sm leading-6 text-[#bab2c2]">
                   Enrollment, pricing, and full curriculum are available on the
                   course page.
                 </p>
@@ -98,7 +98,7 @@ export default function CourseDetail() {
                   href={course.udemyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#d9ff5a] px-5 py-3 text-sm font-bold text-[#13201e]"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#a288b3] px-5 py-3 text-sm font-bold text-[#1e1a2e]"
                 >
                   Enroll on Udemy <ExternalLink size={15} />
                 </a>
@@ -118,33 +118,33 @@ export default function CourseDetail() {
             where you are.
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[#13201e]/15 bg-white p-6">
+            <div className="rounded-2xl border border-[#1e1a2e]/15 bg-white p-6">
               <p className="font-display text-xl font-extrabold">
                 This is for you if…
               </p>
-              <ul className="mt-5 space-y-3 text-sm leading-6 text-[#586760]">
+              <ul className="mt-5 space-y-3 text-sm leading-6 text-[#5e5469]">
                 <li className="flex gap-2">
                   <Check
                     size={16}
-                    className="mt-1 shrink-0 text-[#789200]"
+                    className="mt-1 shrink-0 text-[#8b6b9e]"
                   />
                   You have some technical background and want hands-on practice.
                 </li>
                 <li className="flex gap-2">
                   <Check
                     size={16}
-                    className="mt-1 shrink-0 text-[#789200]"
+                    className="mt-1 shrink-0 text-[#8b6b9e]"
                   />
                   You want to build and operate real systems, not just study
                   theory.
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-[#13201e]/15 p-6">
+            <div className="rounded-2xl border border-[#1e1a2e]/15 p-6">
               <p className="font-display text-xl font-extrabold">
                 Not the right fit if…
               </p>
-              <p className="mt-5 text-sm leading-6 text-[#586760]">
+              <p className="mt-5 text-sm leading-6 text-[#5e5469]">
                 You are looking for a conceptual overview with no implementation
                 work, or are completely new to programming.
               </p>
@@ -157,9 +157,9 @@ export default function CourseDetail() {
             {course.outcomes.map((outcome, i) => (
               <div
                 key={outcome}
-                className="flex gap-5 border-b border-[#13201e]/15 pb-5"
+                className="flex gap-5 border-b border-[#1e1a2e]/15 pb-5"
               >
-                <span className="font-mono text-xs text-[#789200]">
+                <span className="font-mono text-xs text-[#8b6b9e]">
                   0{i + 1}
                 </span>
                 <p className="font-display text-xl font-bold leading-6 tracking-[-.035em]">
@@ -179,19 +179,19 @@ export default function CourseDetail() {
           <Accordion
             type="single"
             collapsible
-            className="mt-8 border-t border-[#13201e]/15"
+            className="mt-8 border-t border-[#1e1a2e]/15"
           >
             {course.curriculum.map((item, index) => (
               <AccordionItem key={item.title} value={item.title}>
                 <AccordionTrigger className="font-display text-lg font-bold tracking-[-.025em] hover:no-underline">
                   <span>
-                    <span className="mr-4 font-mono text-xs text-[#789200]">
+                    <span className="mr-4 font-mono text-xs text-[#8b6b9e]">
                       0{index + 1}
                     </span>
                     {item.title}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-sm leading-6 text-[#586760]">
+                <AccordionContent className="text-sm leading-6 text-[#5e5469]">
                   {item.description}
                 </AccordionContent>
               </AccordionItem>
@@ -199,12 +199,12 @@ export default function CourseDetail() {
           </Accordion>
         </div>
         {coursePath && (
-          <aside className="rounded-2xl bg-[#d9ff5a] p-7">
+          <aside className="rounded-2xl bg-[#a288b3] p-7">
             <p className="eyebrow">What's next</p>
             <h3 className="mt-4 font-display text-3xl font-extrabold leading-none tracking-[-.05em]">
               Keep going with the {coursePath.title} path.
             </h3>
-            <p className="mt-5 text-sm leading-6 text-[#43513a]">
+            <p className="mt-5 text-sm leading-6 text-[#4a3d56]">
               Turn this foundation into a complete, ordered route toward
               mastering {coursePath.title.toLowerCase()}.
             </p>

@@ -9,7 +9,7 @@ export default function NotFound() {
         <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em]">
           This page doesn't exist yet.
         </h1>
-        <p className="mt-6 max-w-lg text-base leading-7 text-[#586760]">
+        <p className="mt-6 max-w-lg text-base leading-7 text-[#5e5469]">
           The page you're looking for may have moved or hasn't been built yet.
           Explore the course catalogue to find what you need.
         </p>

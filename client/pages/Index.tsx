@@ -34,19 +34,19 @@ export default function Index() {
   return (
     <main>
       {/* Hero — unchanged */}
-      <section className="relative border-b border-[#13201e]/10 bg-[#eef2e7]">
+      <section className="relative border-b border-[#1e1a2e]/10 bg-[#f0ebf4]">
         <div className="page-shell grid min-h-[620px] items-center gap-14 py-20 lg:grid-cols-[1.15fr_.85fr] lg:py-24">
           <div className="relative z-10">
             <div className="eyebrow">
               <Sparkles size={13} /> Engineering education, without the fluff
             </div>
-            <h1 className="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[.94] tracking-[-0.075em] text-[#13201e] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[.94] tracking-[-0.075em] text-[#1e1a2e] sm:text-6xl lg:text-7xl">
               Production-grade
               <br />
-              <span className="text-[#6d8700]">DevOps, MLOps</span>
+              <span className="text-[#7b5e8b]">DevOps, MLOps</span>
               <br />& Agentic AI.
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-7 text-[#52615a] sm:text-lg">
+            <p className="mt-7 max-w-xl text-base leading-7 text-[#5a5066] sm:text-lg">
               Learn how modern systems actually get built, deployed, and operated
               — from the instructor behind 15+ practical DevOps and AI courses.
             </p>
@@ -66,15 +66,15 @@ export default function Index() {
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-[440px] lg:mx-0">
-            <div className="absolute -inset-6 rounded-full border border-[#7e8b4f]/30"></div>
-            <div className="absolute inset-7 rounded-full border border-dashed border-[#7e8b4f]/50"></div>
+            <div className="absolute -inset-6 rounded-full border border-[#8b7b9e]/30"></div>
+            <div className="absolute inset-7 rounded-full border border-dashed border-[#8b7b9e]/50"></div>
             <Link
               to="/roadmaps"
               aria-label="Explore the Agentic AI roadmap"
-              className="relative block aspect-square overflow-hidden rounded-full border-2 border-[#13201e] bg-[#d9ff5a] p-7 shadow-[12px_12px_0_#13201e] transition-transform hover:-translate-y-1 sm:p-8"
+              className="relative block aspect-square overflow-hidden rounded-full border-2 border-[#1e1a2e] bg-[#a288b3] p-7 shadow-[12px_12px_0_#1e1a2e] transition-transform hover:-translate-y-1 sm:p-8"
             >
-              <div className="relative z-10 flex h-full flex-col justify-between rounded-[28%] border-2 border-[#13201e] bg-[#f7f7f2] p-7 sm:p-8">
-                <span className="w-fit rounded-full border border-[#13201e] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+              <div className="relative z-10 flex h-full flex-col justify-between rounded-[28%] border-2 border-[#1e1a2e] bg-[#f6f3f8] p-7 sm:p-8">
+                <span className="w-fit rounded-full border border-[#1e1a2e] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                   SODA system map
                 </span>
                 <div>
@@ -83,11 +83,11 @@ export default function Index() {
                     <br />
                     real thing.
                   </p>
-                  <Scribble className="mt-4 h-12 w-48 text-[#789200]" />
+                  <Scribble className="mt-4 h-12 w-48 text-[#8b6b9e]" />
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold">DevOps × AI</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#13201e] text-[#d9ff5a]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1e1a2e] text-[#a288b3]">
                     <ArrowUpRight size={17} />
                   </span>
                 </div>
@@ -99,34 +99,34 @@ export default function Index() {
       </section>
 
       {/* Stats — unchanged */}
-      <section className="border-b border-[#13201e]/10 bg-[#13201e] text-[#f7f7f2]">
+      <section className="border-b border-[#1e1a2e]/10 bg-[#1e1a2e] text-[#f6f3f8]">
         <div className="page-shell grid grid-cols-2 divide-x divide-white/15 md:grid-cols-4">
           <div className="py-7 pr-4">
             <p className="font-display text-3xl font-extrabold tracking-[-.06em]">
               301k+
             </p>
-            <p className="mt-1 text-xs text-[#aeb8ae]">learners worldwide</p>
+            <p className="mt-1 text-xs text-[#a9a2b0]">learners worldwide</p>
           </div>
           <div className="py-7 px-4">
             <p className="font-display text-3xl font-extrabold tracking-[-.06em]">
               7k+
             </p>
-            <p className="mt-1 text-xs text-[#aeb8ae]">course reviews</p>
+            <p className="mt-1 text-xs text-[#a9a2b0]">course reviews</p>
           </div>
           <div className="py-7 pr-4 pl-0 md:px-4">
             <p className="font-display text-3xl font-extrabold tracking-[-.06em]">
               15+
             </p>
-            <p className="mt-1 text-xs text-[#aeb8ae]">technical courses</p>
+            <p className="mt-1 text-xs text-[#a9a2b0]">technical courses</p>
           </div>
           <div className="py-7 pl-4">
             <p className="font-display text-3xl font-extrabold tracking-[-.06em]">
               4.7/5
             </p>
-            <p className="mt-1 text-xs text-[#aeb8ae]">average rating</p>
+            <p className="mt-1 text-xs text-[#a9a2b0]">average rating</p>
           </div>
         </div>
-        <div className="page-shell pb-4 text-[10px] text-[#718177]">
+        <div className="page-shell pb-4 text-[10px] text-[#736b7e]">
           Udemy profile snapshot — July 2026
         </div>
       </section>
@@ -156,13 +156,13 @@ export default function Index() {
               to={`/learning-paths/${path.slug}`}
               className="path-card group"
             >
-              <span className="font-mono text-xs text-[#759100]">
+              <span className="font-mono text-xs text-[#7b5e8b]">
                 {path.number} / PATH
               </span>
               <h3 className="mt-12 font-display text-2xl font-extrabold leading-tight tracking-[-.05em]">
                 {path.title}
               </h3>
-              <p className="mt-4 text-sm leading-6 text-[#617069]">
+              <p className="mt-4 text-sm leading-6 text-[#665c70]">
                 {path.description}
               </p>
               <span className="mt-7 flex items-center gap-2 text-sm font-bold">
@@ -178,7 +178,7 @@ export default function Index() {
       </section>
 
       {/* Featured Courses — data-driven */}
-      <section className="border-y border-[#13201e]/10 bg-[#e5ebdc]">
+      <section className="border-y border-[#1e1a2e]/10 bg-[#ebe3f0]">
         <div className="page-shell py-24">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -204,16 +204,16 @@ export default function Index() {
                 className={`course-card group ${course.status === "coming-soon" ? "opacity-60" : ""}`}
               >
                 <div className="flex items-start justify-between">
-                  <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#13201e] bg-[#d9ff5a] font-mono text-sm font-bold">
+                  <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#1e1a2e] bg-[#a288b3] font-mono text-sm font-bold">
                     {course.shortCode}
                   </span>
                   <div className="flex gap-2">
                     {course.status === "coming-soon" && (
-                      <span className="rounded-full border border-dashed border-[#6d8700]/50 bg-[#d9ff5a]/20 px-2 py-1 text-[10px] font-bold uppercase">
+                      <span className="rounded-full border border-dashed border-[#7b5e8b]/50 bg-[#a288b3]/20 px-2 py-1 text-[10px] font-bold uppercase">
                         Coming soon
                       </span>
                     )}
-                    <span className="rounded-full border border-[#13201e]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
+                    <span className="rounded-full border border-[#1e1a2e]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
                       {course.level}
                     </span>
                   </div>
@@ -221,10 +221,10 @@ export default function Index() {
                 <h3 className="mt-10 font-display text-xl font-extrabold tracking-[-.04em]">
                   {course.title}
                 </h3>
-                <p className="mt-2 text-sm text-[#617069]">
+                <p className="mt-2 text-sm text-[#665c70]">
                   {course.tagline}
                 </p>
-                <div className="mt-6 flex items-center justify-between border-t border-[#13201e]/10 pt-4 text-xs font-bold">
+                <div className="mt-6 flex items-center justify-between border-t border-[#1e1a2e]/10 pt-4 text-xs font-bold">
                   <span>View course</span>
                   <ArrowUpRight
                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
@@ -239,32 +239,32 @@ export default function Index() {
 
       {/* Roadmap CTA — unchanged */}
       <section className="page-shell py-24">
-        <div className="overflow-hidden rounded-[2rem] bg-[#13201e] px-7 py-10 text-[#f7f7f2] sm:px-12 sm:py-14">
+        <div className="overflow-hidden rounded-[2rem] bg-[#1e1a2e] px-7 py-10 text-[#f6f3f8] sm:px-12 sm:py-14">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_.8fr]">
             <div>
-              <p className="eyebrow text-[#d9ff5a]">Free visual guide</p>
+              <p className="eyebrow text-[#a288b3]">Free visual guide</p>
               <h2 className="mt-4 font-display text-4xl font-extrabold leading-[.98] tracking-[-.06em] sm:text-5xl">
                 What does an AI Native DevOps Engineer actually need to know?
               </h2>
-              <p className="mt-5 max-w-xl text-sm leading-6 text-[#b9c4b9]">
+              <p className="mt-5 max-w-xl text-sm leading-6 text-[#b5aebb]">
                 Follow the core skills, identify the deep-dives, and see which
                 building blocks turn experiments into dependable systems.
               </p>
               <Link
                 to="/roadmaps"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#d9ff5a] px-5 py-3 text-sm font-bold text-[#13201e]"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#a288b3] px-5 py-3 text-sm font-bold text-[#1e1a2e]"
               >
                 Explore the roadmap <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="relative mx-auto w-full max-w-sm rounded-2xl border border-[#9ca997]/30 p-6">
-              <div className="absolute -right-5 -top-5 rounded-full border border-[#d9ff5a]/50 bg-[#13201e] px-3 py-2 text-[10px] font-bold text-[#d9ff5a]">
+            <div className="relative mx-auto w-full max-w-sm rounded-2xl border border-[#9a8fa5]/30 p-6">
+              <div className="absolute -right-5 -top-5 rounded-full border border-[#a288b3]/50 bg-[#1e1a2e] px-3 py-2 text-[10px] font-bold text-[#a288b3]">
                 CORE PATH
               </div>
-              <div className="rounded-lg border border-[#d9ff5a] p-3 text-center text-xs font-bold">
+              <div className="rounded-lg border border-[#a288b3] p-3 text-center text-xs font-bold">
                 Agentic AI Engineer
               </div>
-              <div className="mx-auto h-7 w-px bg-[#d9ff5a]"></div>
+              <div className="mx-auto h-7 w-px bg-[#a288b3]"></div>
               <div className="grid grid-cols-3 gap-2">
                 <div className="rounded-lg border border-white/30 p-3 text-center text-[10px] font-bold">
                   Foundations
@@ -276,7 +276,7 @@ export default function Index() {
                   Production
                 </div>
               </div>
-              <div className="mx-auto h-7 w-px bg-[#d9ff5a]"></div>
+              <div className="mx-auto h-7 w-px bg-[#a288b3]"></div>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg border border-dashed border-white/30 p-3 text-center text-[10px]">
                   LLM basics
@@ -291,7 +291,7 @@ export default function Index() {
       </section>
 
       {/* Instructor CTA — unchanged */}
-      <section className="border-t border-[#13201e]/10 bg-[#d9ff5a]">
+      <section className="border-t border-[#1e1a2e]/10 bg-[#a288b3]">
         <div className="page-shell flex flex-col justify-between gap-10 py-16 sm:flex-row sm:items-center">
           <div>
             <p className="eyebrow">Built by a practitioner</p>
