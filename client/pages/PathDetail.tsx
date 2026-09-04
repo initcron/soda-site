@@ -73,29 +73,29 @@ export default function PathDetail() {
                   <div
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-sm font-bold ${
                       isComingSoon
-                        ? "border-2 border-dashed border-[#B07A64]/40 text-[#B07A64]/60"
-                        : "bg-[#506580] text-[#D4A08A]"
+                        ? "border-2 border-dashed border-[#886A7A]/40 text-[#886A7A]/60"
+                        : "bg-[#506580] text-[#B08A9A]"
                     }`}
                   >
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   {!isLast && (
-                    <div className="w-px flex-1 bg-[#B07A64]/30" />
+                    <div className="w-px flex-1 bg-[#886A7A]/30" />
                   )}
                 </div>
                 <Link
                   to={`/courses/${course.slug}`}
-                  className={`mb-6 flex-1 rounded-2xl border border-[#506580]/15 bg-white p-6 transition hover:-translate-y-0.5 hover:border-[#506580] hover:shadow-[4px_4px_0_#D4A08A] ${
+                  className={`mb-6 flex-1 rounded-2xl border border-[#506580]/15 bg-white p-6 transition hover:-translate-y-0.5 hover:border-[#506580] hover:shadow-[4px_4px_0_#B08A9A] ${
                     isComingSoon ? "opacity-60" : ""
                   }`}
                 >
                   <div className="flex items-start justify-between">
-                    <span className="flex h-10 w-10 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#D4A08A] font-mono text-xs font-bold">
+                    <span className="flex h-10 w-10 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#B08A9A] font-mono text-xs font-bold">
                       {course.shortCode}
                     </span>
                     <div className="flex gap-2">
                       {isComingSoon && (
-                        <span className="rounded-full border border-dashed border-[#B07A64]/50 bg-[#D4A08A]/20 px-2 py-1 text-[10px] font-bold uppercase">
+                        <span className="rounded-full border border-dashed border-[#886A7A]/50 bg-[#B08A9A]/20 px-2 py-1 text-[10px] font-bold uppercase">
                           Coming soon
                         </span>
                       )}
@@ -121,15 +121,15 @@ export default function PathDetail() {
           {publishedCount <= 3 && (
             <div className="flex gap-6">
               <div className="flex flex-col items-center">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[#B07A64]/30 text-[#B07A64]/40 font-mono text-lg">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[#886A7A]/30 text-[#886A7A]/40 font-mono text-lg">
                   +
                 </div>
               </div>
-              <div className="mb-6 flex-1 rounded-2xl border border-dashed border-[#B07A64]/30 bg-[#D4A08A]/10 p-6">
-                <p className="font-display text-sm font-bold text-[#B07A64]">
+              <div className="mb-6 flex-1 rounded-2xl border border-dashed border-[#886A7A]/30 bg-[#B08A9A]/10 p-6">
+                <p className="font-display text-sm font-bold text-[#886A7A]">
                   More courses coming soon
                 </p>
-                <p className="mt-1 text-xs text-[#B07A64]/70">
+                <p className="mt-1 text-xs text-[#886A7A]/70">
                   This path is actively growing. New courses will be added as
                   they become available.
                 </p>

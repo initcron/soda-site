@@ -43,7 +43,7 @@ export default function Index() {
             <h1 className="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[.94] tracking-[-0.075em] text-[#506580] sm:text-6xl lg:text-7xl">
               Production-grade
               <br />
-              <span className="text-[#B07A64]">DevOps, MLOps</span>
+              <span className="text-[#886A7A]">DevOps, MLOps</span>
               <br />& Agentic AI.
             </h1>
             <p className="mt-7 max-w-xl text-base leading-7 text-[#5e6068] sm:text-lg">
@@ -71,7 +71,7 @@ export default function Index() {
             <Link
               to="/roadmaps"
               aria-label="Explore the Agentic AI roadmap"
-              className="relative block aspect-square overflow-hidden rounded-full border-2 border-[#506580] bg-[#D4A08A] p-7 shadow-[12px_12px_0_#506580] transition-transform hover:-translate-y-1 sm:p-8"
+              className="relative block aspect-square overflow-hidden rounded-full border-2 border-[#506580] bg-[#B08A9A] p-7 shadow-[12px_12px_0_#506580] transition-transform hover:-translate-y-1 sm:p-8"
             >
               <div className="relative z-10 flex h-full flex-col justify-between rounded-[28%] border-2 border-[#506580] bg-[#ffffff] p-7 sm:p-8">
                 <span className="w-fit rounded-full border border-[#506580] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
@@ -83,11 +83,11 @@ export default function Index() {
                     <br />
                     real thing.
                   </p>
-                  <Scribble className="mt-4 h-12 w-48 text-[#B07A64]" />
+                  <Scribble className="mt-4 h-12 w-48 text-[#886A7A]" />
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold">DevOps × AI</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#506580] text-[#D4A08A]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#506580] text-[#B08A9A]">
                     <ArrowUpRight size={17} />
                   </span>
                 </div>
@@ -156,7 +156,7 @@ export default function Index() {
               to={`/learning-paths/${path.slug}`}
               className="path-card group"
             >
-              <span className="font-mono text-xs text-[#B07A64]">
+              <span className="font-mono text-xs text-[#886A7A]">
                 {path.number} / PATH
               </span>
               <h3 className="mt-12 font-display text-2xl font-extrabold leading-tight tracking-[-.05em]">
@@ -204,12 +204,12 @@ export default function Index() {
                 className={`course-card group ${course.status === "coming-soon" ? "opacity-60" : ""}`}
               >
                 <div className="flex items-start justify-between">
-                  <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#D4A08A] font-mono text-sm font-bold text-white">
+                  <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#B08A9A] font-mono text-sm font-bold text-white">
                     {course.shortCode}
                   </span>
                   <div className="flex gap-2">
                     {course.status === "coming-soon" && (
-                      <span className="rounded-full border border-dashed border-[#B07A64]/50 bg-[#D4A08A]/20 px-2 py-1 text-[10px] font-bold uppercase">
+                      <span className="rounded-full border border-dashed border-[#886A7A]/50 bg-[#B08A9A]/20 px-2 py-1 text-[10px] font-bold uppercase">
                         Coming soon
                       </span>
                     )}
@@ -242,7 +242,7 @@ export default function Index() {
         <div className="overflow-hidden rounded-[2rem] bg-[#506580] px-7 py-10 text-[#ffffff] sm:px-12 sm:py-14">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_.8fr]">
             <div>
-              <p className="eyebrow text-[#D4A08A]">Free visual guide</p>
+              <p className="eyebrow text-[#B08A9A]">Free visual guide</p>
               <h2 className="mt-4 font-display text-4xl font-extrabold leading-[.98] tracking-[-.06em] sm:text-5xl">
                 What does an AI Native DevOps Engineer actually need to know?
               </h2>
@@ -252,19 +252,19 @@ export default function Index() {
               </p>
               <Link
                 to="/roadmaps"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#D4A08A] px-5 py-3 text-sm font-bold text-white"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-white"
               >
                 Explore the roadmap <ArrowRight size={16} />
               </Link>
             </div>
             <div className="relative mx-auto w-full max-w-sm rounded-2xl border border-[#8e9098]/30 p-6">
-              <div className="absolute -right-5 -top-5 rounded-full border border-[#D4A08A]/50 bg-[#506580] px-3 py-2 text-[10px] font-bold text-[#D4A08A]">
+              <div className="absolute -right-5 -top-5 rounded-full border border-[#B08A9A]/50 bg-[#506580] px-3 py-2 text-[10px] font-bold text-[#B08A9A]">
                 CORE PATH
               </div>
-              <div className="rounded-lg border border-[#D4A08A] p-3 text-center text-xs font-bold">
+              <div className="rounded-lg border border-[#B08A9A] p-3 text-center text-xs font-bold">
                 Agentic AI Engineer
               </div>
-              <div className="mx-auto h-7 w-px bg-[#D4A08A]"></div>
+              <div className="mx-auto h-7 w-px bg-[#B08A9A]"></div>
               <div className="grid grid-cols-3 gap-2">
                 <div className="rounded-lg border border-white/30 p-3 text-center text-[10px] font-bold">
                   Foundations
@@ -276,7 +276,7 @@ export default function Index() {
                   Production
                 </div>
               </div>
-              <div className="mx-auto h-7 w-px bg-[#D4A08A]"></div>
+              <div className="mx-auto h-7 w-px bg-[#B08A9A]"></div>
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-lg border border-dashed border-white/30 p-3 text-center text-[10px]">
                   LLM basics

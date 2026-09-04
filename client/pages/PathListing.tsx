@@ -27,11 +27,11 @@ function PathCard({ path }: { path: (typeof paths)[number] }) {
       to={`/learning-paths/${path.slug}`}
       className="path-card group"
     >
-      <span className="font-mono text-xs text-[#B07A64]">
+      <span className="font-mono text-xs text-[#886A7A]">
         {path.number} / PATH
       </span>
       {prereq && (
-        <span className="mt-2 block text-[10px] font-bold text-[#B07A64]/70">
+        <span className="mt-2 block text-[10px] font-bold text-[#886A7A]/70">
           Requires: {prereq.title}
         </span>
       )}

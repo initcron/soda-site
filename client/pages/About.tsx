@@ -47,7 +47,7 @@ export default function About() {
                 <h2 className="font-display text-2xl font-extrabold tracking-[-.05em]">
                   Gourav J. Shah
                 </h2>
-                <p className="mt-1 text-sm font-bold text-[#B07A64]">
+                <p className="mt-1 text-sm font-bold text-[#886A7A]">
                   Founder, School of DevOps
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -111,23 +111,23 @@ export default function About() {
               </h3>
               <ul className="mt-3 space-y-2 text-sm leading-7 text-[#5e6068]">
                 <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B07A64]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#886A7A]" />
                   Corporate trainer with 12,000+ hours of workshops delivered
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B07A64]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#886A7A]" />
                   Author of <em>Ansible Playbook Essentials</em> (Packt, 2015)
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B07A64]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#886A7A]" />
                   Official course author for The Linux Foundation
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B07A64]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#886A7A]" />
                   Certified Kubernetes Administrator (CKA)
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B07A64]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#886A7A]" />
                   300,000+ learners across 160+ countries
                 </li>
               </ul>
@@ -135,7 +135,7 @@ export default function About() {
 
             <div className="rounded-2xl border border-[#506580]/15 bg-white p-6">
               <div className="flex items-center gap-3">
-                <BookOpen size={18} className="text-[#B07A64]" />
+                <BookOpen size={18} className="text-[#886A7A]" />
                 <h3 className="font-display text-lg font-extrabold tracking-[-.04em]">
                   Runbooks & Robots
                 </h3>
@@ -160,7 +160,7 @@ export default function About() {
 
       <section className="border-y border-[#506580]/10 bg-[#506580] text-[#ffffff]">
         <div className="page-shell py-16">
-          <p className="text-center font-mono text-xs text-[#D4A08A]">
+          <p className="text-center font-mono text-xs text-[#B08A9A]">
             TRUSTED BY TEAMS AT
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-10 opacity-70">

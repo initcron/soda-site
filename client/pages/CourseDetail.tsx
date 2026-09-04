@@ -62,7 +62,7 @@ export default function CourseDetail() {
               </div>
             )}
           </div>
-          <aside className="self-end rounded-2xl border border-[#506580] bg-[#506580] p-6 text-[#ffffff] shadow-[8px_8px_0_#D4A08A]">
+          <aside className="self-end rounded-2xl border border-[#506580] bg-[#506580] p-6 text-[#ffffff] shadow-[8px_8px_0_#B08A9A]">
             {isComingSoon ? (
               <>
                 <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b0b2b8]">
@@ -77,7 +77,7 @@ export default function CourseDetail() {
                 </p>
                 <Link
                   to="/courses"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#D4A08A] px-5 py-3 text-sm font-bold text-white"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-white"
                 >
                   Browse courses <ArrowRight size={15} />
                 </Link>
@@ -98,7 +98,7 @@ export default function CourseDetail() {
                   href={course.udemyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#D4A08A] px-5 py-3 text-sm font-bold text-white"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-white"
                 >
                   Enroll on Udemy <ExternalLink size={15} />
                 </a>
@@ -126,14 +126,14 @@ export default function CourseDetail() {
                 <li className="flex gap-2">
                   <Check
                     size={16}
-                    className="mt-1 shrink-0 text-[#B07A64]"
+                    className="mt-1 shrink-0 text-[#886A7A]"
                   />
                   You have some technical background and want hands-on practice.
                 </li>
                 <li className="flex gap-2">
                   <Check
                     size={16}
-                    className="mt-1 shrink-0 text-[#B07A64]"
+                    className="mt-1 shrink-0 text-[#886A7A]"
                   />
                   You want to build and operate real systems, not just study
                   theory.
@@ -159,7 +159,7 @@ export default function CourseDetail() {
                 key={outcome}
                 className="flex gap-5 border-b border-[#506580]/15 pb-5"
               >
-                <span className="font-mono text-xs text-[#B07A64]">
+                <span className="font-mono text-xs text-[#886A7A]">
                   0{i + 1}
                 </span>
                 <p className="font-display text-xl font-bold leading-6 tracking-[-.035em]">
@@ -185,7 +185,7 @@ export default function CourseDetail() {
               <AccordionItem key={item.title} value={item.title}>
                 <AccordionTrigger className="font-display text-lg font-bold tracking-[-.025em] hover:no-underline">
                   <span>
-                    <span className="mr-4 font-mono text-xs text-[#B07A64]">
+                    <span className="mr-4 font-mono text-xs text-[#886A7A]">
                       0{index + 1}
                     </span>
                     {item.title}
@@ -210,7 +210,7 @@ export default function CourseDetail() {
             </p>
             <Link
               to={`/learning-paths/${coursePath.slug}`}
-              className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#D4A08A]"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#B08A9A]"
             >
               View learning path <ArrowRight size={16} />
             </Link>

@@ -41,7 +41,7 @@ export default function Roadmap() {
 
       <div className="mt-10 overflow-hidden rounded-3xl bg-[#506580] p-7 text-[#ffffff] sm:p-10">
         <div className="mb-8">
-          <span className="font-mono text-xs text-[#D4A08A]">
+          <span className="font-mono text-xs text-[#B08A9A]">
             CAREER ROADMAP
           </span>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.05em]">
@@ -65,7 +65,7 @@ export default function Roadmap() {
                 <div className="rounded-2xl border border-white/15 p-5 sm:p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="font-mono text-[10px] text-[#D4A08A]">
+                      <span className="font-mono text-[10px] text-[#B08A9A]">
                         {path.number} / PATH
                       </span>
                       <h3 className="mt-1 font-display text-xl font-extrabold tracking-[-.04em]">
@@ -74,7 +74,7 @@ export default function Roadmap() {
                     </div>
                     <Link
                       to={`/learning-paths/${path.slug}`}
-                      className="rounded-full border border-white/20 px-3 py-1.5 text-[10px] font-bold transition hover:border-[#D4A08A] hover:text-[#D4A08A]"
+                      className="rounded-full border border-white/20 px-3 py-1.5 text-[10px] font-bold transition hover:border-[#B08A9A] hover:text-[#B08A9A]"
                     >
                       View path
                     </Link>
@@ -86,7 +86,7 @@ export default function Roadmap() {
                         <Link
                           key={course.slug}
                           to={`/courses/${course.slug}`}
-                          className={`rounded-lg border p-3 transition hover:border-[#D4A08A] ${
+                          className={`rounded-lg border p-3 transition hover:border-[#B08A9A] ${
                             isComingSoon
                               ? "border-dashed border-white/15 opacity-50"
                               : "border-white/20"
@@ -97,7 +97,7 @@ export default function Roadmap() {
                               {course.title}
                             </span>
                             {isComingSoon && (
-                              <span className="ml-2 shrink-0 rounded-full border border-dashed border-[#D4A08A]/40 px-1.5 py-0.5 text-[8px] font-bold text-[#D4A08A]/60">
+                              <span className="ml-2 shrink-0 rounded-full border border-dashed border-[#B08A9A]/40 px-1.5 py-0.5 text-[8px] font-bold text-[#B08A9A]/60">
                                 Soon
                               </span>
                             )}
@@ -112,7 +112,7 @@ export default function Roadmap() {
                 </div>
                 {!isLastPath && (
                   <div className="flex justify-center py-3">
-                    <ChevronDown className="text-[#D4A08A]" size={20} />
+                    <ChevronDown className="text-[#B08A9A]" size={20} />
                   </div>
                 )}
               </div>
@@ -123,7 +123,7 @@ export default function Roadmap() {
         <div className="mt-8 text-center">
           <Link
             to={`/learning-paths/${activeRoadmap.pathSlugs[0]}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[#D4A08A] px-5 py-3 text-sm font-bold text-[#506580]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-[#506580]"
           >
             Start this roadmap <ArrowRight size={16} />
           </Link>

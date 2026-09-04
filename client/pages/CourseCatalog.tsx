@@ -61,12 +61,12 @@ export default function CourseCatalog() {
             className={`course-card group ${course.status === "coming-soon" ? "opacity-60" : ""}`}
           >
             <div className="flex items-start justify-between">
-              <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#D4A08A] font-mono text-sm font-bold text-white">
+              <span className="flex h-12 w-12 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#B08A9A] font-mono text-sm font-bold text-white">
                 {course.shortCode}
               </span>
               <div className="flex gap-2">
                 {course.status === "coming-soon" && (
-                  <span className="rounded-full border border-dashed border-[#B07A64]/50 bg-[#D4A08A]/20 px-2 py-1 text-[10px] font-bold uppercase">
+                  <span className="rounded-full border border-dashed border-[#886A7A]/50 bg-[#B08A9A]/20 px-2 py-1 text-[10px] font-bold uppercase">
                     Coming soon
                   </span>
                 )}
