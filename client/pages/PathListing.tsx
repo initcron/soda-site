@@ -27,18 +27,18 @@ function PathCard({ path }: { path: (typeof paths)[number] }) {
       to={`/learning-paths/${path.slug}`}
       className="path-card group"
     >
-      <span className="font-mono text-xs text-[#7b5e8b]">
+      <span className="font-mono text-xs text-[#B07A64]">
         {path.number} / PATH
       </span>
       {prereq && (
-        <span className="mt-2 block text-[10px] font-bold text-[#7b5e8b]/70">
+        <span className="mt-2 block text-[10px] font-bold text-[#B07A64]/70">
           Requires: {prereq.title}
         </span>
       )}
       <h2 className="mt-12 font-display text-2xl font-extrabold leading-tight tracking-[-.05em]">
         {path.title}
       </h2>
-      <p className="mt-4 text-sm leading-6 text-[#665c70]">
+      <p className="mt-4 text-sm leading-6 text-[#6b6d75]">
         {path.description}
       </p>
       <div className="mt-6 flex items-center justify-between text-xs font-bold">
@@ -65,7 +65,7 @@ export default function PathListing() {
         <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em] sm:text-6xl">
           Choose the outcome. Follow the path.
         </h1>
-        <p className="mt-6 text-base leading-7 text-[#5e5469]">
+        <p className="mt-6 text-base leading-7 text-[#5e6068]">
           Ordered sequences for a role, with a course-level CTA at every step so
           you can start where your experience starts.
         </p>
@@ -75,7 +75,7 @@ export default function PathListing() {
         <h2 className="font-display text-2xl font-extrabold tracking-[-.05em]">
           AI Native DevOps Engineer
         </h2>
-        <p className="mt-2 text-sm text-[#5e5469]">
+        <p className="mt-2 text-sm text-[#5e6068]">
           For existing DevOps engineers ready to integrate AI into their workflows.
         </p>
         <div className="mt-6 grid gap-4 lg:grid-cols-3">
@@ -89,7 +89,7 @@ export default function PathListing() {
         <h2 className="font-display text-2xl font-extrabold tracking-[-.05em]">
           DevOps / Platform Engineer
         </h2>
-        <p className="mt-2 text-sm text-[#5e5469]">
+        <p className="mt-2 text-sm text-[#5e6068]">
           The foundational path for new and experienced engineers who want to get
           into and dive deeper into DevOps.
         </p>

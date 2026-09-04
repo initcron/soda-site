@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 270 23% 96%;
-    --foreground: 252 28% 14%;
+    --background: 0 0% 100%;
+    --foreground: 213 23% 41%;
     --card: 0 0% 100%;
-    --card-foreground: 252 28% 14%;
+    --card-foreground: 213 23% 41%;
     --popover: 0 0% 100%;
-    --popover-foreground: 252 28% 14%;
-    --primary: 252 28% 14%;
-    --primary-foreground: 270 23% 96%;
-    --secondary: 276 25% 92%;
-    --secondary-foreground: 252 28% 14%;
-    --muted: 276 25% 92%;
-    --muted-foreground: 270 12% 36%;
-    --accent: 276 22% 62%;
-    --accent-foreground: 252 28% 14%;
+    --popover-foreground: 213 23% 41%;
+    --primary: 213 23% 41%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 4% 93%;
+    --secondary-foreground: 213 23% 41%;
+    --muted: 220 4% 93%;
+    --muted-foreground: 220 6% 36%;
+    --accent: 272 24% 60%;
+    --accent-foreground: 213 23% 41%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 270 12% 82%;
-    --input: 270 12% 82%;
-    --ring: 276 20% 46%;
+    --border: 220 4% 82%;
+    --input: 220 4% 82%;
+    --ring: 272 22% 49%;
     --radius: 0.75rem;
   }
   * { @apply border-border; }
@@ -37,9 +37,9 @@
   .page-shell { @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8; }
   .font-display { font-family: "Space Grotesk", sans-serif; }
   .font-mono { font-family: "DM Mono", monospace; }
-  .eyebrow { @apply flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7b5e8b]; }
+  .eyebrow { @apply flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#B07A64]; }
   .section-title { @apply font-display text-4xl font-extrabold leading-[.98] tracking-[-.06em] sm:text-5xl; }
-  .button-primary { @apply inline-flex items-center gap-2 rounded-full bg-[#1e1a2e] px-5 py-3 text-sm font-bold text-[#f6f3f8] transition hover:-translate-y-0.5 hover:bg-[#352a42]; }
-  .path-card { @apply min-h-[280px] rounded-2xl border border-[#1e1a2e]/15 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#1e1a2e] hover:shadow-[5px_5px_0_#a288b3]; }
-  .course-card { @apply rounded-2xl border border-[#1e1a2e]/15 bg-[#f6f3f8] p-5 transition duration-300 hover:-translate-y-1 hover:border-[#1e1a2e] hover:shadow-[5px_5px_0_#1e1a2e]; }
+  .button-primary { @apply inline-flex items-center gap-2 rounded-full bg-[#4a7fc4] px-5 py-3 text-sm font-bold text-[#ffffff] transition hover:-translate-y-0.5 hover:bg-[#5a8fd4]; }
+  .path-card { @apply min-h-[280px] rounded-2xl border border-[#506580]/15 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#506580] hover:shadow-[5px_5px_0_#D4A08A]; }
+  .course-card { @apply rounded-2xl border border-[#506580]/15 bg-[#ffffff] p-5 transition duration-300 hover:-translate-y-1 hover:border-[#506580] hover:shadow-[5px_5px_0_#506580]; }
 }
