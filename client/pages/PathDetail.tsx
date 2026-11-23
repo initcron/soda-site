@@ -1,139 +1,181 @@
-import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
-import { Link, useParams, Navigate } from "react-router-dom";
-import { getPathBySlug, getCoursesForPath } from "@/data/paths";
+import { ArrowRight, Award, Check, ChevronRight, Hammer } from "lucide-react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { CourseCard, PathBadge } from "@/components/site";
+import { links } from "@/data/links";
+import { getCoursesForPath, getPathBySlug, resolvePathSlug } from "@/data/paths";
 
 export default function PathDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const path = slug ? getPathBySlug(slug) : undefined;
-  const pathCourses = slug ? getCoursesForPath(slug) : [];
-  const prerequisitePath = path?.prerequisitePathSlug
-    ? getPathBySlug(path.prerequisitePathSlug)
-    : undefined;
+  const resolved = slug ? resolvePathSlug(slug) : undefined;
 
-  if (!path) {
-    return <Navigate to="/learning-paths" replace />;
-  }
+  if (!resolved) return <Navigate to="/learning-paths" replace />;
+  if (resolved !== slug) return <Navigate to={`/learning-paths/${resolved}`} replace />;
 
-  const publishedCount = pathCourses.filter(
-    (c) => c.status === "published"
-  ).length;
-  const hasComingSoon = pathCourses.some((c) => c.status === "coming-soon");
+  const path = getPathBySlug(resolved)!;
+  const pathCourses = getCoursesForPath(resolved);
+  const prerequisite = path.prerequisitePathSlug ? getPathBySlug(path.prerequisitePathSlug) : undefined;
+  const isFree = path.kind === "free";
+  const isFlagship = path.kind === "flagship";
 
   return (
-    <main className="bg-[#ffffff]">
-      <section className="border-b border-[#506580]/10">
-        <div className="page-shell py-5 text-xs text-[#6b6d75]">
-          <Link className="hover:text-[#506580]" to="/">
-            Home
-          </Link>{" "}
+    <main>
+      <section className="dark-band border-t border-white/10">
+        <div className="page-shell pt-5 text-xs text-[#8a90a0]">
+          <Link className="hover:text-white" to="/">Home</Link>{" "}
           <ChevronRight className="inline" size={13} />{" "}
-          <Link className="hover:text-[#506580]" to="/learning-paths">
-            Learning paths
-          </Link>{" "}
-          <ChevronRight className="inline" size={13} /> {path.title}
+          <Link className="hover:text-white" to="/learning-paths">Tracks</Link>{" "}
+          <ChevronRight className="inline" size={13} /> {path.shortTitle}
+        </div>
+        <div className="page-shell grid gap-10 py-14 lg:grid-cols-[1.4fr_.6fr] lg:py-20">
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-mono text-xs text-[#D9BFCB]">
+                {path.number} / {isFlagship ? "TRACK" : "PATH"}
+              </span>
+              <PathBadge path={path} />
+            </div>
+            <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-[-.035em] sm:text-5xl lg:text-6xl">
+              {path.title}
+            </h1>
+            <p className="mt-4 text-lg font-semibold text-[#D9BFCB]">{path.tagline}</p>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[#c9ccd6]">{path.description}</p>
+            {prerequisite && (
+              <Link to={`/learning-paths/${prerequisite.slug}`} className="mt-7 inline-flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-xs font-bold transition hover:border-white">
+                Recommended first: {prerequisite.title} <ArrowRight size={13} />
+              </Link>
+            )}
+          </div>
+          <aside className="self-start rounded-xl border border-white/15 bg-white/[0.04] p-6">
+            <dl className="space-y-4 text-sm">
+              <div className="flex justify-between gap-4">
+                <dt className="text-[#aab0bf]">Modules</dt>
+                <dd className="font-bold">{path.modules.length}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="text-[#aab0bf]">Courses today</dt>
+                <dd className="font-bold">{pathCourses.filter((c) => c.status === "published").length}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="text-[#aab0bf]">Price</dt>
+                <dd className="text-right font-bold">
+                  {isFree ? "Free on our platform" : "Per course on Udemy"}
+                </dd>
+              </div>
+              {path.certification && (
+                <div className="flex justify-between gap-4">
+                  <dt className="text-[#aab0bf]">Certification</dt>
+                  <dd className="font-bold">Planned</dd>
+                </div>
+              )}
+            </dl>
+            {pathCourses.length > 0 ? (
+              <a href="#courses" className="button-accent mt-6 w-full">
+                See the courses <ArrowRight size={15} />
+              </a>
+            ) : (
+              <a href={links.newsletter} target="_blank" rel="noopener noreferrer" className="button-accent mt-6 w-full">
+                Email me at launch
+              </a>
+            )}
+            {isFree && (
+              <p className="mt-4 text-xs leading-5 text-[#aab0bf]">
+                Free access opens when our learning platform launches. The courses are on Udemy at Udemy's price until then.
+              </p>
+            )}
+          </aside>
         </div>
       </section>
 
-      <section className="border-b border-[#506580]/10 bg-[#ffffff]">
-        <div className="page-shell py-16 lg:py-24">
-          <p className="eyebrow">
-            {path.number} / PATH · {pathCourses.length} course
-            {pathCourses.length !== 1 ? "s" : ""}
-          </p>
-          <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[.94] tracking-[-.07em] sm:text-6xl">
-            {path.title}
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-7 text-[#5e6068]">
-            {path.description}
-          </p>
-          {prerequisitePath && (
-            <div className="mt-6">
-              <Link
-                to={`/learning-paths/${prerequisitePath.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[#506580]/20 bg-white/60 px-4 py-2 text-xs font-bold transition hover:border-[#506580]"
-              >
-                Prerequisite: {prerequisitePath.title}{" "}
-                <ArrowRight size={13} />
+      <section className="page-shell grid gap-14 py-20 lg:grid-cols-2">
+        <div>
+          <p className="eyebrow">What you will be able to do</p>
+          <h2 className="section-title mt-3">Outcomes</h2>
+          <ul className="mt-8 space-y-4">
+            {path.outcomes.map((o) => (
+              <li key={o} className="flex gap-3 text-sm leading-6 text-[#3b4150]">
+                <Check className="mt-1 shrink-0 text-[#886A7A]" size={16} />
+                {o}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="eyebrow">Who it is for</p>
+          <h2 className="section-title mt-3">Audience</h2>
+          <ul className="mt-8 space-y-3">
+            {path.audience.map((a) => (
+              <li key={a} className="card py-4 text-sm font-semibold">{a}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-y border-[#131A2B]/10 bg-[#f6f5f7]">
+        <div className="page-shell py-20">
+          <p className="eyebrow">Curriculum</p>
+          <h2 className="section-title mt-3">What the {isFlagship ? "track" : "path"} covers.</h2>
+          {path.status !== "available" && (
+            <p className="lede mt-4 max-w-2xl">
+              This is the planned curriculum. Modules are released as they are finished, and the outline will change as the tools do.
+            </p>
+          )}
+          <ol className="mt-10 grid gap-4 md:grid-cols-2">
+            {path.modules.map((m, i) => (
+              <li key={m.title} className="card flex gap-5">
+                <span className="font-mono text-sm text-[#886A7A]">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3 className="font-display text-lg font-bold tracking-[-.02em]">{m.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#565b68]">{m.topics}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {(path.capstone || path.certification) && (
+        <section className="page-shell grid gap-4 py-20 lg:grid-cols-2">
+          {path.capstone && (
+            <div className="card p-8">
+              <Hammer className="text-[#886A7A]" size={22} />
+              <p className="eyebrow mt-5">Capstone</p>
+              <p className="mt-3 font-display text-xl font-bold leading-snug tracking-[-.02em]">{path.capstone}</p>
+            </div>
+          )}
+          {path.certification && (
+            <div className="dark-band rounded-xl p-8">
+              <Award className="text-[#D9BFCB]" size={22} />
+              <p className="eyebrow-dark mt-5">Certification · planned</p>
+              <p className="mt-3 font-display text-xl font-bold leading-snug tracking-[-.02em]">{path.certification.name}</p>
+              <p className="mt-2 text-sm leading-6 text-[#c9ccd6]">{path.certification.format}.</p>
+              <Link to="/certifications" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#D9BFCB] hover:text-white">
+                How certification will work <ArrowRight size={15} />
               </Link>
             </div>
           )}
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="page-shell py-20">
-        <p className="eyebrow">Course sequence</p>
-        <h2 className="section-title mt-4">Your ordered path.</h2>
-        <div className="mt-12 space-y-0">
-          {pathCourses.map((course, index) => {
-            const isLast = index === pathCourses.length - 1 && !hasComingSoon;
-            const isComingSoon = course.status === "coming-soon";
-            return (
-              <div key={course.slug} className="flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-sm font-bold ${
-                      isComingSoon
-                        ? "border-2 border-dashed border-[#886A7A]/40 text-[#886A7A]/60"
-                        : "bg-[#506580] text-[#B08A9A]"
-                    }`}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                  {!isLast && (
-                    <div className="w-px flex-1 bg-[#886A7A]/30" />
-                  )}
-                </div>
-                <Link
-                  to={`/courses/${course.slug}`}
-                  className={`mb-6 flex-1 rounded-2xl border border-[#506580]/15 bg-white p-6 transition hover:-translate-y-0.5 hover:border-[#506580] hover:shadow-[4px_4px_0_#B08A9A] ${
-                    isComingSoon ? "opacity-60" : ""
-                  }`}
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-10 w-10 rotate-[-4deg] items-center justify-center rounded-lg border border-[#506580] bg-[#B08A9A] font-mono text-xs font-bold">
-                      {course.shortCode}
-                    </span>
-                    <div className="flex gap-2">
-                      {isComingSoon && (
-                        <span className="rounded-full border border-dashed border-[#886A7A]/50 bg-[#B08A9A]/20 px-2 py-1 text-[10px] font-bold uppercase">
-                          Coming soon
-                        </span>
-                      )}
-                      <span className="rounded-full border border-[#506580]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider">
-                        {course.level}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-extrabold tracking-[-.04em]">
-                    {course.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[#6b6d75]">
-                    {course.tagline}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between border-t border-[#506580]/10 pt-4 text-xs font-bold">
-                    <span>{course.duration}</span>
-                    <ArrowUpRight size={15} />
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-          {publishedCount <= 3 && (
-            <div className="flex gap-6">
-              <div className="flex flex-col items-center">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[#886A7A]/30 text-[#886A7A]/40 font-mono text-lg">
-                  +
-                </div>
-              </div>
-              <div className="mb-6 flex-1 rounded-2xl border border-dashed border-[#886A7A]/30 bg-[#B08A9A]/10 p-6">
-                <p className="font-display text-sm font-bold text-[#886A7A]">
-                  More courses coming soon
-                </p>
-                <p className="mt-1 text-xs text-[#886A7A]/70">
-                  This path is actively growing. New courses will be added as
-                  they become available.
-                </p>
-              </div>
+      <section id="courses" className="border-t border-[#131A2B]/10">
+        <div className="page-shell py-20">
+          <p className="eyebrow">Courses</p>
+          <h2 className="section-title mt-3">
+            {pathCourses.length > 0 ? "Start with what is available today." : "Courses are in development."}
+          </h2>
+          {pathCourses.length > 0 ? (
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {pathCourses.map((course) => (
+                <CourseCard key={course.slug} course={course} free={isFree} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 max-w-2xl">
+              <p className="lede">
+                No courses in this track are published yet. Subscribe to the newsletter and we will email you when the first module opens.
+              </p>
+              <a href={links.newsletter} target="_blank" rel="noopener noreferrer" className="button-primary mt-6">
+                Email me at launch <ArrowRight size={15} />
+              </a>
             </div>
           )}
         </div>

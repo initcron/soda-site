@@ -7,19 +7,19 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 213 23% 41%;
+    --foreground: 222 39% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 213 23% 41%;
+    --card-foreground: 222 39% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 213 23% 41%;
-    --primary: 213 23% 41%;
+    --popover-foreground: 222 39% 12%;
+    --primary: 222 39% 12%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 4% 93%;
-    --secondary-foreground: 213 23% 41%;
+    --secondary-foreground: 222 39% 12%;
     --muted: 220 4% 93%;
     --muted-foreground: 220 6% 36%;
     --accent: 272 24% 60%;
-    --accent-foreground: 213 23% 41%;
+    --accent-foreground: 222 39% 12%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     --border: 220 4% 82%;
@@ -34,12 +34,24 @@
 }
 
 @layer components {
-  .page-shell { @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12; }
+  .page-shell { @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12; }
   .font-display { font-family: "Space Grotesk", sans-serif; }
   .font-mono { font-family: "DM Mono", monospace; }
-  .eyebrow { @apply flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#886A7A]; }
-  .section-title { @apply font-display text-4xl font-extrabold leading-[.98] tracking-[-.06em] sm:text-5xl; }
-  .button-primary { @apply inline-flex items-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-[#ffffff] transition hover:-translate-y-0.5 hover:bg-[#886A7A]; }
-  .path-card { @apply min-h-[280px] rounded-2xl border border-[#506580]/15 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#506580] hover:shadow-[5px_5px_0_#B08A9A]; }
-  .course-card { @apply rounded-2xl border border-[#506580]/15 bg-[#ffffff] p-5 transition duration-300 hover:-translate-y-1 hover:border-[#506580] hover:shadow-[5px_5px_0_#506580]; }
+  .eyebrow { @apply flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[#886A7A]; }
+  .eyebrow-dark { @apply flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-[#D9BFCB]; }
+  .section-title { @apply font-display text-3xl font-bold leading-[1.08] tracking-[-.03em] text-[#131A2B] sm:text-[2.6rem]; }
+  .lede { @apply text-base leading-7 text-[#565b68]; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-[#131A2B] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#886A7A]; }
+  .button-accent { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-[#D9BFCB] px-5 py-3 text-sm font-bold text-[#131A2B] transition hover:bg-white; }
+  .button-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-[#131A2B]/20 px-5 py-3 text-sm font-bold text-[#131A2B] transition hover:border-[#131A2B]; }
+  .button-ghost-dark { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition hover:border-white; }
+  .card { @apply rounded-xl border border-[#131A2B]/15 bg-white p-6; }
+  .card-link { @apply rounded-xl border border-[#131A2B]/15 bg-white p-6 transition duration-200 hover:border-[#131A2B]/60 hover:shadow-[0_10px_30px_-12px_rgba(19,26,43,.25)]; }
+  .path-card { @apply card-link flex min-h-[240px] flex-col; }
+  .course-card { @apply card-link flex flex-col p-5; }
+  .chip { @apply inline-flex items-center rounded-md border border-[#131A2B]/15 px-2 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-[#565b68]; }
+  .chip-free { @apply inline-flex items-center rounded-md bg-[#E3F1E8] px-2 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-[#1F6B43]; }
+  .chip-new { @apply inline-flex items-center rounded-md border border-white/25 bg-[#131A2B] px-2 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-[#D9BFCB]; }
+  .chip-planned { @apply inline-flex items-center rounded-md border border-dashed border-[#886A7A]/60 px-2 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-[#886A7A]; }
+  .dark-band { @apply bg-[#131A2B] text-white; }
 }

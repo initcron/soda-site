@@ -14,12 +14,12 @@ export default function Roadmap() {
         <p className="eyebrow">
           <Map size={13} /> Career roadmaps
         </p>
-        <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em] sm:text-6xl">
-          Career maps for the systems behind AI.
+        <h1 className="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-[-.035em] sm:text-6xl">
+          Find the route from the job you have now.
         </h1>
         <p className="mt-6 text-base leading-7 text-[#5e6068]">
-          A career roadmap chains multiple learning paths into a complete
-          journey. See the full picture from foundations to mastery.
+          Pick where you are starting from. Each roadmap chains the paths
+          and tracks that get you to production AI engineering.
         </p>
       </div>
 
@@ -30,8 +30,8 @@ export default function Roadmap() {
             onClick={() => setActiveTab(r.slug)}
             className={`rounded-full border px-4 py-2 text-xs font-bold transition ${
               activeTab === r.slug
-                ? "border-[#506580] bg-[#506580] text-[#ffffff]"
-                : "border-[#506580]/15 hover:border-[#506580]"
+                ? "border-[#131A2B] bg-[#131A2B] text-[#ffffff]"
+                : "border-[#131A2B]/15 hover:border-[#131A2B]"
             }`}
           >
             {r.title}
@@ -39,12 +39,12 @@ export default function Roadmap() {
         ))}
       </div>
 
-      <div className="mt-10 overflow-hidden rounded-3xl bg-[#506580] p-7 text-[#ffffff] sm:p-10">
+      <div className="mt-10 overflow-hidden rounded-2xl bg-[#131A2B] p-7 text-[#ffffff] sm:p-10">
         <div className="mb-8">
-          <span className="font-mono text-xs text-[#B08A9A]">
-            CAREER ROADMAP
+          <span className="font-mono text-xs uppercase text-[#D9BFCB]">
+            Starting from: {activeRoadmap.startingFrom}
           </span>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.05em]">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-[-.025em]">
             {activeRoadmap.title}
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[#b0b2b8]">
@@ -62,13 +62,13 @@ export default function Roadmap() {
 
             return (
               <div key={pathSlug}>
-                <div className="rounded-2xl border border-white/15 p-5 sm:p-6">
+                <div className="rounded-xl border border-white/15 p-5 sm:p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="font-mono text-[10px] text-[#B08A9A]">
                         {path.number} / PATH
                       </span>
-                      <h3 className="mt-1 font-display text-xl font-extrabold tracking-[-.04em]">
+                      <h3 className="mt-1 font-display text-xl font-bold tracking-[-.02em]">
                         {path.title}
                       </h3>
                     </div>
@@ -80,6 +80,11 @@ export default function Roadmap() {
                     </Link>
                   </div>
                   <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {pathCourses.length === 0 && (
+                      <p className="rounded-lg border border-dashed border-white/20 p-3 text-xs text-[#b0b2b8] sm:col-span-2">
+                        Courses for this track are in development.
+                      </p>
+                    )}
                     {pathCourses.map((course) => {
                       const isComingSoon = course.status === "coming-soon";
                       return (
@@ -123,7 +128,7 @@ export default function Roadmap() {
         <div className="mt-8 text-center">
           <Link
             to={`/learning-paths/${activeRoadmap.pathSlugs[0]}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-[#506580]"
+            className="button-accent"
           >
             Start this roadmap <ArrowRight size={16} />
           </Link>

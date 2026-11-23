@@ -1,6 +1,16 @@
 import { describe, it, expect } from "vitest";
 import { courses, getCourseBySlug, type Course } from "./courses";
-import { paths, getPathBySlug, getCoursesForPath, roadmaps, type LearningPath, type CareerRoadmap } from "./paths";
+import {
+  paths,
+  getPathBySlug,
+  getCoursesForPath,
+  getCertifiedPaths,
+  getFlagshipPaths,
+  getFreePath,
+  resolvePathSlug,
+  roadmaps,
+  specialisations,
+} from "./paths";
 
 describe("courses data", () => {
   it("has at least 15 published courses", () => {
@@ -59,13 +69,19 @@ describe("courses data", () => {
 });
 
 describe("paths data", () => {
-  it("has exactly 5 paths", () => {
-    expect(paths.length).toBe(5);
+  it("has the five programme paths in catalogue order", () => {
+    expect(paths.map((p) => p.slug)).toEqual([
+      "agentic-devops",
+      "ai-platform-engineering",
+      "agenticops-kubernetes",
+      "sre-foundations",
+      "kubernetes-platform-engineering",
+    ]);
   });
 
-  it("every path has a unique slug", () => {
-    const slugs = paths.map((p) => p.slug);
-    expect(new Set(slugs).size).toBe(slugs.length);
+  it("every path has a unique slug and number", () => {
+    expect(new Set(paths.map((p) => p.slug)).size).toBe(paths.length);
+    expect(new Set(paths.map((p) => p.number)).size).toBe(paths.length);
   });
 
   it("every path references valid course slugs", () => {
@@ -86,6 +102,19 @@ describe("paths data", () => {
     });
   });
 
+  it("course.pathSlugs and path.courseSlugs agree", () => {
+    paths.forEach((p) => {
+      p.courseSlugs.forEach((slug) => {
+        expect(getCourseBySlug(slug)!.pathSlugs).toContain(p.slug);
+      });
+    });
+    courses.forEach((c) => {
+      c.pathSlugs.forEach((slug) => {
+        expect(getPathBySlug(slug)!.courseSlugs).toContain(c.slug);
+      });
+    });
+  });
+
   it("prerequisitePathSlug references valid paths", () => {
     const pathSlugs = new Set(paths.map((p) => p.slug));
     paths.forEach((p) => {
@@ -95,20 +124,114 @@ describe("paths data", () => {
     });
   });
 
-  it("getCoursesForPath returns courses in path order", () => {
-    const devopsCourses = getCoursesForPath("devops-engineer");
-    expect(devopsCourses.length).toBe(5);
-    expect(devopsCourses[0].slug).toBe("ultimate-aws-bootcamp");
+  it("every path describes audience, outcomes and modules", () => {
+    paths.forEach((p) => {
+      expect(p.tagline.length).toBeGreaterThan(0);
+      expect(p.audience.length).toBeGreaterThan(0);
+      expect(p.outcomes.length).toBeGreaterThanOrEqual(3);
+      expect(p.modules.length).toBeGreaterThanOrEqual(4);
+    });
+  });
 
-    const agenticCourses = getCoursesForPath("agentic-devops-engineer");
-    expect(agenticCourses.length).toBe(4);
-    expect(agenticCourses[0].slug).toBe("aiml-foundations");
+  it("exposes three flagship tracks, two of them launching first", () => {
+    const flagship = getFlagshipPaths();
+    expect(flagship.map((p) => p.slug)).toEqual([
+      "agentic-devops",
+      "ai-platform-engineering",
+      "agenticops-kubernetes",
+    ]);
+    expect(flagship.filter((p) => p.status === "launching").map((p) => p.slug)).toEqual([
+      "agentic-devops",
+      "ai-platform-engineering",
+    ]);
+  });
+
+  it("every flagship track has a certification and a capstone", () => {
+    getFlagshipPaths().forEach((p) => {
+      expect(p.certification).toBeDefined();
+      expect(p.certification!.name.length).toBeGreaterThan(0);
+      expect(p.capstone).toBeDefined();
+    });
+  });
+
+  it("offers the four School of DevOps certifications", () => {
+    const names = Object.fromEntries(
+      paths.filter((p) => p.certification).map((p) => [p.slug, p.certification!.name]),
+    );
+    expect(names).toEqual({
+      "agentic-devops": "School of DevOps Certified Agentic DevOps Engineer",
+      "ai-platform-engineering": "School of DevOps Certified AI Platform Engineer",
+      "agenticops-kubernetes": "School of DevOps Certified AgentOps Engineer",
+      "sre-foundations": "School of DevOps Certified SRE/DevOps Engineer",
+    });
+  });
+
+  it("getCertifiedPaths lists launch tracks first and the SRE certification last", () => {
+    expect(getCertifiedPaths().map((p) => p.slug)).toEqual([
+      "agentic-devops",
+      "ai-platform-engineering",
+      "agenticops-kubernetes",
+      "sre-foundations",
+    ]);
+  });
+
+  it("the free path is SRE Foundations and covers the essentials", () => {
+    const free = getFreePath();
+    expect(free.slug).toBe("sre-foundations");
+    expect(paths.filter((p) => p.kind === "free").length).toBe(1);
+    expect(free.courseSlugs).toEqual(
+      expect.arrayContaining([
+        "ultimate-aws-bootcamp",
+        "ultimate-terraform-bootcamp",
+        "ultimate-ansible-bootcamp",
+        "cicd-jenkins-docker",
+      ]),
+    );
+  });
+
+  it("getCoursesForPath returns courses in path order", () => {
+    const free = getCoursesForPath("sre-foundations");
+    expect(free.map((c) => c.slug)).toEqual(getFreePath().courseSlugs);
+
+    const agentic = getCoursesForPath("agentic-devops");
+    expect(agentic[0].slug).toBe("aiml-foundations");
+    expect(agentic[agentic.length - 1].slug).toBe("agentic-devops-bootcamp");
+  });
+
+  it("resolves retired path slugs to their replacements", () => {
+    expect(resolvePathSlug("devops-engineer")).toBe("sre-foundations");
+    expect(resolvePathSlug("kubernetes-platform-engineer")).toBe("kubernetes-platform-engineering");
+    expect(resolvePathSlug("ai-augmented-devops")).toBe("agentic-devops");
+    expect(resolvePathSlug("agentic-devops-engineer")).toBe("agentic-devops");
+    expect(resolvePathSlug("ai-platform-engineer")).toBe("ai-platform-engineering");
+    expect(resolvePathSlug("agentic-devops")).toBe("agentic-devops");
+    expect(resolvePathSlug("nope")).toBeUndefined();
+  });
+});
+
+describe("specialisations data", () => {
+  it("covers security, FinOps, governance and AI SRE", () => {
+    expect(specialisations.map((s) => s.slug)).toEqual([
+      "ai-security-devsecops",
+      "finops-for-ai",
+      "guardrails-grc",
+      "ai-sre",
+    ]);
+  });
+
+  it("references valid course slugs", () => {
+    specialisations.forEach((s) => {
+      (s.courseSlugs ?? []).forEach((slug) => {
+        expect(getCourseBySlug(slug)).toBeDefined();
+      });
+    });
   });
 });
 
 describe("roadmaps data", () => {
-  it("has exactly 3 career roadmaps", () => {
-    expect(roadmaps.length).toBe(3);
+  it("has a roadmap per starting role", () => {
+    expect(roadmaps.length).toBeGreaterThanOrEqual(3);
+    expect(new Set(roadmaps.map((r) => r.slug)).size).toBe(roadmaps.length);
   });
 
   it("every roadmap references valid path slugs", () => {
@@ -120,9 +243,10 @@ describe("roadmaps data", () => {
     });
   });
 
-  it("every roadmap has at least 2 paths", () => {
+  it("every roadmap has at least 2 paths and names who it is for", () => {
     roadmaps.forEach((r) => {
       expect(r.pathSlugs.length).toBeGreaterThanOrEqual(2);
+      expect(r.startingFrom.length).toBeGreaterThan(0);
     });
   });
 });

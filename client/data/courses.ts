@@ -46,7 +46,7 @@ export const courses: Course[] = [
     students: "2000",
     status: "published",
     shortCode: "AI",
-    pathSlugs: ["ai-augmented-devops", "agentic-devops-engineer", "ai-platform-engineer"],
+    pathSlugs: ["agentic-devops", "ai-platform-engineering"],
   },
   {
     slug: "ai-driven-iac",
@@ -77,7 +77,7 @@ export const courses: Course[] = [
     students: "1500",
     status: "published",
     shortCode: "IA",
-    pathSlugs: ["ai-augmented-devops", "agentic-devops-engineer"],
+    pathSlugs: ["agentic-devops"],
   },
   {
     slug: "docker-genai-agentic",
@@ -108,7 +108,7 @@ export const courses: Course[] = [
     students: "1800",
     status: "published",
     shortCode: "DG",
-    pathSlugs: ["ai-augmented-devops", "agentic-devops-engineer", "ai-platform-engineer"],
+    pathSlugs: ["agentic-devops", "ai-platform-engineering"],
   },
   {
     slug: "devops-to-mlops-bootcamp",
@@ -139,7 +139,7 @@ export const courses: Course[] = [
     students: "1200",
     status: "published",
     shortCode: "ML",
-    pathSlugs: ["ai-platform-engineer"],
+    pathSlugs: ["ai-platform-engineering"],
   },
   // --- Kubernetes Courses (middle) ---
   {
@@ -172,7 +172,7 @@ export const courses: Course[] = [
     students: "45000",
     status: "published",
     shortCode: "K8",
-    pathSlugs: ["kubernetes-platform-engineer"],
+    pathSlugs: ["kubernetes-platform-engineering"],
   },
   {
     slug: "ultimate-argo-bootcamp",
@@ -203,7 +203,7 @@ export const courses: Course[] = [
     students: "4000",
     status: "published",
     shortCode: "AR",
-    pathSlugs: ["kubernetes-platform-engineer"],
+    pathSlugs: ["kubernetes-platform-engineering"],
   },
   {
     slug: "ultimate-eks-bootcamp",
@@ -234,7 +234,7 @@ export const courses: Course[] = [
     students: "7000",
     status: "published",
     shortCode: "EK",
-    pathSlugs: ["kubernetes-platform-engineer"],
+    pathSlugs: ["kubernetes-platform-engineering"],
   },
   {
     slug: "ultimate-devsecops-bootcamp",
@@ -265,7 +265,7 @@ export const courses: Course[] = [
     students: "3000",
     status: "published",
     shortCode: "DS",
-    pathSlugs: ["kubernetes-platform-engineer"],
+    pathSlugs: ["kubernetes-platform-engineering"],
   },
   {
     slug: "ultimate-istio-bootcamp",
@@ -296,7 +296,7 @@ export const courses: Course[] = [
     students: "3500",
     status: "published",
     shortCode: "IS",
-    pathSlugs: ["kubernetes-platform-engineer"],
+    pathSlugs: ["kubernetes-platform-engineering"],
   },
   // --- DevOps Foundational Courses (bottom) ---
   {
@@ -330,7 +330,7 @@ export const courses: Course[] = [
     students: "35000",
     status: "published",
     shortCode: "DO",
-    pathSlugs: ["devops-engineer"],
+    pathSlugs: ["sre-foundations"],
   },
   {
     slug: "ultimate-terraform-bootcamp",
@@ -361,7 +361,7 @@ export const courses: Course[] = [
     students: "8000",
     status: "published",
     shortCode: "TF",
-    pathSlugs: ["devops-engineer"],
+    pathSlugs: ["sre-foundations"],
   },
   {
     slug: "ultimate-ansible-bootcamp",
@@ -392,7 +392,7 @@ export const courses: Course[] = [
     students: "12000",
     status: "published",
     shortCode: "AN",
-    pathSlugs: ["devops-engineer"],
+    pathSlugs: ["sre-foundations"],
   },
   {
     slug: "cicd-jenkins-docker",
@@ -423,7 +423,7 @@ export const courses: Course[] = [
     students: "15000",
     status: "published",
     shortCode: "JK",
-    pathSlugs: ["devops-engineer"],
+    pathSlugs: ["sre-foundations"],
   },
   {
     slug: "ultimate-aws-bootcamp",
@@ -454,7 +454,7 @@ export const courses: Course[] = [
     students: "9000",
     status: "published",
     shortCode: "AW",
-    pathSlugs: ["devops-engineer"],
+    pathSlugs: ["sre-foundations"],
   },
   {
     slug: "windows-containers-azure",
@@ -510,7 +510,7 @@ export const courses: Course[] = [
     ],
     status: "coming-soon",
     shortCode: "AG",
-    pathSlugs: ["agentic-devops-engineer"],
+    pathSlugs: ["agentic-devops"],
   },
   {
     slug: "llmops-with-kubernetes",
@@ -533,7 +533,7 @@ export const courses: Course[] = [
     ],
     status: "coming-soon",
     shortCode: "LK",
-    pathSlugs: ["ai-platform-engineer"],
+    pathSlugs: ["ai-platform-engineering"],
   },
 ];
 

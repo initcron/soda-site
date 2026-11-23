@@ -6,7 +6,7 @@ export default function NotFound() {
     <main className="page-shell flex min-h-[58vh] items-center py-20">
       <div className="max-w-2xl">
         <p className="eyebrow">404 / Not found</p>
-        <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em]">
+        <h1 className="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-[-.035em]">
           This page doesn't exist yet.
         </h1>
         <p className="mt-6 max-w-lg text-base leading-7 text-[#5e6068]">

@@ -23,13 +23,13 @@ export default function CourseDetail() {
   return (
     <main className="bg-[#ffffff]">
       {/* Breadcrumb */}
-      <section className="border-b border-[#506580]/10">
+      <section className="border-b border-[#131A2B]/10">
         <div className="page-shell py-5 text-xs text-[#6b6d75]">
-          <Link className="hover:text-[#506580]" to="/">
+          <Link className="hover:text-[#131A2B]" to="/">
             Home
           </Link>{" "}
           <ChevronRight className="inline" size={13} />{" "}
-          <Link className="hover:text-[#506580]" to="/courses">
+          <Link className="hover:text-[#131A2B]" to="/courses">
             Courses
           </Link>{" "}
           <ChevronRight className="inline" size={13} /> {course.title}
@@ -37,13 +37,13 @@ export default function CourseDetail() {
       </section>
 
       {/* Hero */}
-      <section className="border-b border-[#506580]/10 bg-[#ffffff]">
+      <section className="border-b border-[#131A2B]/10 bg-[#ffffff]">
         <div className="page-shell grid gap-10 py-16 lg:grid-cols-[1.35fr_.65fr] lg:py-24">
           <div>
             <p className="eyebrow">
               {course.level} · {course.duration}
             </p>
-            <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.94] tracking-[-.07em] sm:text-6xl">
+            <h1 className="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-[-.035em] sm:text-6xl">
               {course.title}
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-7 text-[#5e6068]">
@@ -51,24 +51,24 @@ export default function CourseDetail() {
             </p>
             {!isComingSoon && course.rating && (
               <div className="mt-8 flex flex-wrap gap-3 text-sm">
-                <span className="rounded-full border border-[#506580]/15 bg-[#ffffff] px-3 py-1.5">
+                <span className="rounded-full border border-[#131A2B]/15 bg-[#ffffff] px-3 py-1.5">
                   {course.rating} / 5 rating
                 </span>
                 {course.students && (
-                  <span className="rounded-full border border-[#506580]/15 bg-[#ffffff] px-3 py-1.5">
+                  <span className="rounded-full border border-[#131A2B]/15 bg-[#ffffff] px-3 py-1.5">
                     {course.students} students
                   </span>
                 )}
               </div>
             )}
           </div>
-          <aside className="self-end rounded-2xl border border-[#506580] bg-[#506580] p-6 text-[#ffffff] shadow-[8px_8px_0_#B08A9A]">
+          <aside className="self-end rounded-xl border border-[#131A2B] bg-[#131A2B] p-6 text-[#ffffff]">
             {isComingSoon ? (
               <>
                 <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b0b2b8]">
                   Coming soon
                 </p>
-                <p className="mt-4 font-display text-2xl font-extrabold tracking-[-.04em]">
+                <p className="mt-4 font-display text-2xl font-bold tracking-[-.02em]">
                   Under development.
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#b0b2b8]">
@@ -77,7 +77,7 @@ export default function CourseDetail() {
                 </p>
                 <Link
                   to="/courses"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-white"
+                  className="button-accent mt-6 w-full"
                 >
                   Browse courses <ArrowRight size={15} />
                 </Link>
@@ -87,7 +87,7 @@ export default function CourseDetail() {
                 <p className="text-xs font-bold uppercase tracking-[.14em] text-[#b0b2b8]">
                   Ready when you are
                 </p>
-                <p className="mt-4 font-display text-2xl font-extrabold tracking-[-.04em]">
+                <p className="mt-4 font-display text-2xl font-bold tracking-[-.02em]">
                   Learn on Udemy.
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#b0b2b8]">
@@ -98,10 +98,16 @@ export default function CourseDetail() {
                   href={course.udemyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#B08A9A] px-5 py-3 text-sm font-bold text-white"
+                  className="button-accent mt-6 w-full"
                 >
                   Enroll on Udemy <ExternalLink size={15} />
                 </a>
+                {coursePath?.kind === "free" && (
+                  <p className="mt-4 text-xs leading-5 text-[#b0b2b8]">
+                    Part of the free {coursePath.title} path. It will be free
+                    on our own learning platform when that launches.
+                  </p>
+                )}
               </>
             )}
           </aside>
@@ -118,8 +124,8 @@ export default function CourseDetail() {
             where you are.
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[#506580]/15 bg-white p-6">
-              <p className="font-display text-xl font-extrabold">
+            <div className="rounded-xl border border-[#131A2B]/15 bg-white p-6">
+              <p className="font-display text-xl font-bold">
                 This is for you if…
               </p>
               <ul className="mt-5 space-y-3 text-sm leading-6 text-[#5e6068]">
@@ -140,8 +146,8 @@ export default function CourseDetail() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-[#506580]/15 p-6">
-              <p className="font-display text-xl font-extrabold">
+            <div className="rounded-xl border border-[#131A2B]/15 p-6">
+              <p className="font-display text-xl font-bold">
                 Not the right fit if…
               </p>
               <p className="mt-5 text-sm leading-6 text-[#5e6068]">
@@ -157,7 +163,7 @@ export default function CourseDetail() {
             {course.outcomes.map((outcome, i) => (
               <div
                 key={outcome}
-                className="flex gap-5 border-b border-[#506580]/15 pb-5"
+                className="flex gap-5 border-b border-[#131A2B]/15 pb-5"
               >
                 <span className="font-mono text-xs text-[#886A7A]">
                   0{i + 1}
@@ -179,7 +185,7 @@ export default function CourseDetail() {
           <Accordion
             type="single"
             collapsible
-            className="mt-8 border-t border-[#506580]/15"
+            className="mt-8 border-t border-[#131A2B]/15"
           >
             {course.curriculum.map((item, index) => (
               <AccordionItem key={item.title} value={item.title}>
@@ -199,9 +205,9 @@ export default function CourseDetail() {
           </Accordion>
         </div>
         {coursePath && (
-          <aside className="rounded-2xl border border-[#506580]/15 bg-[#506580] p-7 text-white">
+          <aside className="rounded-xl border border-[#131A2B]/15 bg-[#131A2B] p-7 text-white">
             <p className="text-xs font-bold uppercase tracking-[.14em] text-[#9a9ca4]">What's next</p>
-            <h3 className="mt-4 font-display text-3xl font-extrabold leading-none tracking-[-.05em]">
+            <h3 className="mt-4 font-display text-3xl font-bold leading-none tracking-[-.025em]">
               Keep going with the {coursePath.title} path.
             </h3>
             <p className="mt-5 text-sm leading-6 text-[#b0b2b8]">

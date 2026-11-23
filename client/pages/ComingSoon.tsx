@@ -9,7 +9,7 @@ export default function ComingSoon() {
     <main className="page-shell flex min-h-[58vh] items-center py-20">
       <div className="max-w-2xl">
         <p className="eyebrow">School of DevOps / {pageName}</p>
-        <h1 className="mt-5 font-display text-5xl font-extrabold leading-[.95] tracking-[-.07em]">
+        <h1 className="mt-5 font-display text-5xl font-bold leading-[1.02] tracking-[-.035em]">
           This page is coming soon.
         </h1>
         <p className="mt-6 max-w-lg text-base leading-7 text-[#5e6068]">
