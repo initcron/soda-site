@@ -43,9 +43,14 @@ export default function ForTeams() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#c9ccd6]">
             Hands-on team training in Agentic DevOps and AI Platform Engineering, from a trainer with 12,000+ hours in enterprise classrooms.
           </p>
-          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="button-accent mt-9">
-            Talk to Gourav on LinkedIn <ArrowRight size={16} />
-          </a>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a href={`${links.contactMailto}?subject=Team%20training%20enquiry`} className="button-accent">
+              Email {links.contactEmail} <ArrowRight size={16} />
+            </a>
+            <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="button-ghost-dark">
+              Talk to Gourav on LinkedIn
+            </a>
+          </div>
         </div>
         <div className="border-t border-white/10">
           <div className="page-shell flex flex-wrap items-center justify-center gap-x-10 gap-y-5 py-8">
@@ -107,7 +112,7 @@ export default function ForTeams() {
             <h2 className="font-display text-2xl font-bold tracking-[-.03em]">Tell us what your team is trying to solve.</h2>
             <p className="mt-2 text-sm text-[#c9ccd6]">We will reply with an outline, prerequisites and a quote.</p>
           </div>
-          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="button-accent shrink-0">
+          <a href={`${links.contactMailto}?subject=Team%20training%20enquiry`} className="button-accent shrink-0">
             Start the conversation <ArrowRight size={16} />
           </a>
         </div>

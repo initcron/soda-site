@@ -29,7 +29,8 @@ describe("getSeo", () => {
   it("marks unknown pages and placeholders as noindex", () => {
     expect(getSeo("/nope").noindex).toBe(true);
     expect(getSeo("/courses/nope").noindex).toBe(true);
-    expect(getSeo("/legal").noindex).toBe(true);
+    expect(getSeo("/legacy-access").noindex).toBe(true);
+    expect(getSeo("/legal").noindex).toBeFalsy();
     expect(getSeo("/courses").noindex).toBeFalsy();
   });
 
@@ -62,7 +63,8 @@ describe("prerender routes", () => {
 
   it("keeps noindex pages out of the sitemap", () => {
     const sitemap = getSitemapRoutes();
-    expect(sitemap).not.toContain("/legal");
+    expect(sitemap).not.toContain("/legacy-access");
+    expect(sitemap).toContain("/legal");
     expect(sitemap).toContain("/");
     sitemap.forEach((r) => expect(getSeo(r).noindex).toBeFalsy());
   });

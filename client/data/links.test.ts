@@ -12,6 +12,11 @@ describe("links config", () => {
     expect(links.login).toBe("https://courses.schoolofdevops.com/dashboard/");
   });
 
+  it("has a contact address", () => {
+    expect(links.contactEmail).toBe("learn@schoolofdevops.com");
+    expect(links.contactMailto).toBe("mailto:learn@schoolofdevops.com");
+  });
+
   it("has no app download URL until one exists", () => {
     expect(links.appDownload).toBeNull();
   });

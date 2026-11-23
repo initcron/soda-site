@@ -70,8 +70,8 @@ const staticPages: Record<string, Seo> = {
   },
   "/legal": {
     title: `Privacy and disclosure${suffix}`,
-    description: "Privacy and disclosure information for School of DevOps. This page is being prepared.",
-    noindex: true,
+    description:
+      "Who runs schoolofdevops.com, how the Udemy course links work, what the site collects and which services it relies on.",
   },
   "/legacy-access": {
     title: `Legacy access${suffix}`,

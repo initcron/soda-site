@@ -144,7 +144,7 @@ export default function SiteLayout() {
           </div>
         </div>
         <div className="page-shell border-t border-white/10 py-5 text-xs text-[#8a90a0]">
-          © 2026 School of DevOps. Course links currently go to Udemy.
+          © 2026 School of DevOps, run by Initcron Systems Pvt Ltd. Course links are our instructor links to Udemy.
         </div>
       </footer>
     </div>

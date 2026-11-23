@@ -7,6 +7,7 @@ import CourseDetail from "./pages/CourseDetail";
 import ForTeams from "./pages/ForTeams";
 import GetLearnForge from "./pages/GetLearnForge";
 import Index from "./pages/Index";
+import Legal from "./pages/Legal";
 import ManagerBrief from "./pages/ManagerBrief";
 import NotFound from "./pages/NotFound";
 import PathDetail from "./pages/PathDetail";
@@ -37,7 +38,7 @@ export function AppRoutes() {
         <Route path="/get-learnforge" element={<GetLearnForge />} />
         <Route path="/about" element={<About />} />
         <Route path="/legacy-access" element={<ComingSoon />} />
-        <Route path="/legal" element={<ComingSoon />} />
+        <Route path="/legal" element={<Legal />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

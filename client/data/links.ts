@@ -11,6 +11,8 @@ export const links = {
   youtube: "https://www.youtube.com/schoolofdevops",
   linkedin: "https://in.linkedin.com/in/gouravshah",
   login: "https://courses.schoolofdevops.com/dashboard/",
+  contactEmail: "learn@schoolofdevops.com",
+  contactMailto: "mailto:learn@schoolofdevops.com",
   hub: "https://hub.schoolofdevops.com",
   verify: "https://verify.schoolofdevops.com/",
   /** Set when signed LearnForge installers have a download host. */
