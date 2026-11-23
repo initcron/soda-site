@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function ComingSoon() {
   const location = useLocation();
-  const pageName = location.pathname.slice(1).replace(/-/g, " ");
+  const pageName = location.pathname.replace(/^\/+|\/+$/g, "").replace(/-/g, " ");
 
   return (
     <main className="page-shell flex min-h-[58vh] items-center py-20">

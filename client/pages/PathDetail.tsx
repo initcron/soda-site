@@ -58,7 +58,7 @@ export default function PathDetail() {
               <div className="flex justify-between gap-4">
                 <dt className="text-[#aab0bf]">Price</dt>
                 <dd className="text-right font-bold">
-                  {isFree ? "Free on our platform" : "Per course on Udemy"}
+                  {isFree ? "Free in LearnForge" : "Per course on Udemy"}
                 </dd>
               </div>
               {path.certification && (
@@ -79,7 +79,7 @@ export default function PathDetail() {
             )}
             {isFree && (
               <p className="mt-4 text-xs leading-5 text-[#aab0bf]">
-                Free access opens when our learning platform launches. The courses are on Udemy at Udemy's price until then.
+                Free access opens when LearnForge, our desktop app, is released. The courses are on Udemy at Udemy's price until then.
               </p>
             )}
           </aside>
@@ -165,7 +165,7 @@ export default function PathDetail() {
           {pathCourses.length > 0 ? (
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {pathCourses.map((course) => (
-                <CourseCard key={course.slug} course={course} free={isFree} />
+                <CourseCard key={course.slug} course={course} />
               ))}
             </div>
           ) : (

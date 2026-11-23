@@ -2,7 +2,7 @@ import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { courses } from "@/data/courses";
-import { paths } from "@/data/paths";
+import { isFreeCourse, paths } from "@/data/paths";
 
 export default function CourseCatalog() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
@@ -64,7 +64,8 @@ export default function CourseCatalog() {
               <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#131A2B] font-mono text-sm font-bold text-[#D9BFCB]">
                 {course.shortCode}
               </span>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap justify-end gap-2">
+                {isFreeCourse(course) && <span className="chip-free">Free soon in LearnForge</span>}
                 {course.status === "coming-soon" && (
                   <span className="rounded-full border border-dashed border-[#886A7A]/50 bg-[#B08A9A]/20 px-2 py-1 text-[10px] font-bold uppercase">
                     Coming soon

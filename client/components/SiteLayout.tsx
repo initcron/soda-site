@@ -1,8 +1,9 @@
 import { ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { links as external } from "@/data/links";
 import { getFlagshipPaths, getFreePath } from "@/data/paths";
+import { getSeo } from "@/data/seo";
 
 const freePath = getFreePath();
 
@@ -31,6 +32,11 @@ function Logo({ dark = false }: { dark?: boolean }) {
 export default function SiteLayout() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.title = getSeo(pathname).title;
+  }, [pathname]);
 
   return (
     <div className="min-h-screen overflow-hidden bg-white text-[#131A2B]">
@@ -119,6 +125,7 @@ export default function SiteLayout() {
               <Link to="/certifications" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">Certifications</Link>
               <Link to="/courses" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">Course catalogue</Link>
               <Link to="/resources" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">Resources</Link>
+              <Link to="/get-learnforge" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">Get LearnForge</Link>
               <Link to="/roadmaps" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">Career roadmaps</Link>
               <Link to="/for-teams" className="block text-[#e6e8ee] hover:text-[#D9BFCB]">For teams</Link>
             </div>

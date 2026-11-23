@@ -6,6 +6,10 @@ export interface Course {
   level: "Foundation" | "Intermediate" | "Advanced";
   duration: string;
   udemyUrl: string;
+  /** Hub catalog slug. Set only once the Hub has published the course. */
+  hubSlug?: string;
+  /** Free on its own, outside the free path. Lessons and quizzes are free in LearnForge. */
+  free?: boolean;
   outcomes: string[];
   curriculum: { title: string; description: string }[];
   rating?: string;
@@ -19,6 +23,7 @@ export const courses: Course[] = [
   // --- AI & Agentic Courses (top) ---
   {
     slug: "aiml-foundations",
+    free: true,
     title: "AI/ML Foundations for Absolute Beginners",
     tagline: "Build foundational knowledge of AI, ML, and agentic systems",
     description:

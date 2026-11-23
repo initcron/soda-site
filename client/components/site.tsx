@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Course } from "@/data/courses";
-import type { LearningPath, PathStatus } from "@/data/paths";
+import { isFreeCourse, type LearningPath, type PathStatus } from "@/data/paths";
 
 const statusLabel: Record<PathStatus, string> = {
   available: "Available",
@@ -54,7 +54,8 @@ export function TrackCard({
   );
 }
 
-export function CourseCard({ course, free = false }: { course: Course; free?: boolean }) {
+export function CourseCard({ course }: { course: Course }) {
+  const free = isFreeCourse(course);
   const comingSoon = course.status === "coming-soon";
   return (
     <Link to={`/courses/${course.slug}`} className="course-card group">
@@ -63,7 +64,7 @@ export function CourseCard({ course, free = false }: { course: Course; free?: bo
           {course.shortCode}
         </span>
         <div className="flex flex-wrap justify-end gap-2">
-          {free && <span className="chip-free">Free path</span>}
+          {free && <span className="chip-free">Free soon in LearnForge</span>}
           {comingSoon && <span className="chip-planned">Coming soon</span>}
           <span className="chip">{course.level}</span>
         </div>

@@ -7,7 +7,8 @@ import {
 import { ArrowRight, Check, ChevronRight, ExternalLink } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { getCourseBySlug } from "@/data/courses";
-import { paths } from "@/data/paths";
+import { getCourseCta } from "@/data/links";
+import { isFreeCourse, paths } from "@/data/paths";
 
 export default function CourseDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,6 +20,7 @@ export default function CourseDetail() {
 
   const coursePath = paths.find((p) => p.courseSlugs.includes(course.slug));
   const isComingSoon = course.status === "coming-soon";
+  const cta = getCourseCta(course);
 
   return (
     <main className="bg-[#ffffff]">
@@ -88,24 +90,30 @@ export default function CourseDetail() {
                   Ready when you are
                 </p>
                 <p className="mt-4 font-display text-2xl font-bold tracking-[-.02em]">
-                  Learn on Udemy.
+                  {cta?.kind === "hub" ? "Enrol with School of DevOps." : "Learn on Udemy."}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#b0b2b8]">
-                  Enrollment, pricing, and full curriculum are available on the
-                  course page.
+                  {cta?.kind === "hub"
+                    ? "The price for your country is shown at checkout."
+                    : "Enrollment, pricing, and full curriculum are available on the course page."}
                 </p>
                 <a
-                  href={course.udemyUrl}
+                  href={cta?.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button-accent mt-6 w-full"
                 >
-                  Enroll on Udemy <ExternalLink size={15} />
+                  {cta?.label} <ExternalLink size={15} />
                 </a>
-                {coursePath?.kind === "free" && (
+                {isFreeCourse(course) && (
                   <p className="mt-4 text-xs leading-5 text-[#b0b2b8]">
-                    Part of the free {coursePath.title} path. It will be free
-                    on our own learning platform when that launches.
+                    {course.free
+                      ? "The lessons and quizzes of this course will be free in LearnForge, our desktop app."
+                      : `Part of the free ${coursePath?.title ?? "SRE Foundations"} path. It will be free in LearnForge, our desktop app.`}{" "}
+                    LearnForge is not released yet; the Udemy version is sold at Udemy's price.{" "}
+                    <Link to="/get-learnforge" className="font-bold text-[#D9BFCB] underline-offset-4 hover:underline">
+                      About LearnForge
+                    </Link>
                   </p>
                 )}
               </>

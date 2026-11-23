@@ -7,6 +7,7 @@ import {
   getCertifiedPaths,
   getFlagshipPaths,
   getFreePath,
+  isFreeCourse,
   resolvePathSlug,
   roadmaps,
   specialisations,
@@ -206,6 +207,23 @@ describe("paths data", () => {
     expect(resolvePathSlug("ai-platform-engineer")).toBe("ai-platform-engineering");
     expect(resolvePathSlug("agentic-devops")).toBe("agentic-devops");
     expect(resolvePathSlug("nope")).toBeUndefined();
+  });
+});
+
+describe("free courses", () => {
+  it("AI/ML Foundations is free", () => {
+    expect(isFreeCourse(getCourseBySlug("aiml-foundations")!)).toBe(true);
+  });
+
+  it("every course in the free path is free", () => {
+    getCoursesForPath("sre-foundations").forEach((c) => expect(isFreeCourse(c)).toBe(true));
+  });
+
+  it("other courses are not free", () => {
+    const free = new Set(["aiml-foundations", ...getFreePath().courseSlugs]);
+    courses
+      .filter((c) => !free.has(c.slug))
+      .forEach((c) => expect(isFreeCourse(c)).toBe(false));
   });
 });
 

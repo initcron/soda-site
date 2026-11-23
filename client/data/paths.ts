@@ -118,7 +118,7 @@ export const paths: LearningPath[] = [
     certification: {
       name: "School of DevOps Certified Agentic DevOps Engineer",
       status: "planned",
-      format: "Hands-on exam plus a reviewed capstone",
+      format: "Planned format: hands-on exam plus a reviewed capstone",
     },
   },
   {
@@ -185,7 +185,7 @@ export const paths: LearningPath[] = [
     certification: {
       name: "School of DevOps Certified AI Platform Engineer",
       status: "planned",
-      format: "Hands-on exam plus a reviewed capstone",
+      format: "Planned format: hands-on exam plus a reviewed capstone",
     },
     prerequisitePathSlug: "kubernetes-platform-engineering",
   },
@@ -246,7 +246,7 @@ export const paths: LearningPath[] = [
     certification: {
       name: "School of DevOps Certified AgentOps Engineer",
       status: "planned",
-      format: "Hands-on exam plus a reviewed capstone",
+      format: "Planned format: hands-on exam plus a reviewed capstone",
     },
     prerequisitePathSlug: "kubernetes-platform-engineering",
   },
@@ -259,7 +259,7 @@ export const paths: LearningPath[] = [
     status: "available",
     tagline: "The free starting point for DevOps and SRE.",
     description:
-      "Everything you need before the AI tracks: Linux, Docker, Kubernetes essentials, AWS, Terraform, Ansible and CI/CD. We are opening this path for free on our own learning platform. Until then, the courses are on Udemy.",
+      "Everything you need before the AI tracks: Linux, Docker, Kubernetes essentials, AWS, Terraform, Ansible and CI/CD. This path will be free in LearnForge, our desktop app. Until LearnForge is released, the courses are on Udemy.",
     audience: [
       "Anyone starting a DevOps or SRE career",
       "Developers and QA engineers who need the operations basics",
@@ -309,7 +309,7 @@ export const paths: LearningPath[] = [
     certification: {
       name: "School of DevOps Certified SRE/DevOps Engineer",
       status: "planned",
-      format: "Hands-on exam. The learning path is free; the exam is optional",
+      format: "Planned format: hands-on exam. The learning path is free; the exam is optional",
     },
   },
   {
@@ -494,6 +494,11 @@ export function getCertifiedPaths(): LearningPath[] {
 
 export function getFreePath(): LearningPath {
   return paths.find((p) => p.kind === "free")!;
+}
+
+/** A course is free if it is flagged free or belongs to the free path. */
+export function isFreeCourse(course: Course): boolean {
+  return course.free === true || getFreePath().courseSlugs.includes(course.slug);
 }
 
 export function getCoursesForPath(pathSlug: string): Course[] {
